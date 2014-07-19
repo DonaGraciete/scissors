@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="static/index.css">
+	<link rel="stylesheet" type="text/css" href="static/jquery-ui-1.11.0/jquery-ui.css"/>
+	<link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
+	<title>Text editor (2)</title>
+</head>
+
+<body>
+	<div id='new-project'>
+		<form id="form-project">
+			<h2>Create a new Project</h2>
+			<div class="input-group"><input type="text" class="form-control" name="project-name" placeholder="Project name"></div><br/>
+			<div class="input-group"><input type="text" class="form-control" name="project-users" placeholder="Add users"></div><br/>
+			<button type="submit" class="btn btn-primary" id="project-submit">Create</button>
+		</form>
+		<ul id="file-list">
+		</ul>
+	</div>
+
+	<div id='editor'>
+		<div id="wrapper">
+			<button id="bold" type="button" class="btn btn-default btn-sm left">
+				<span class="glyphicon glyphicon-bold"></span>
+			</button>
+			<button id="italic" type="button" class="btn btn-default btn-sm left">
+				<span class="glyphicon glyphicon-italic"></span>
+			</button>
+		</div>
+		<br/>	
+
+		<div class="alert alert-danger" style="display: none" id="websocket-failed"> 
+			<button type="button" class="close alert-close" onclick="$('#websocket-failed').hide().fadeOut(600)">&times;</button>
+			<strong>Warning!</strong> WebSocket connection failed. <a href='teste' id='reconnect'><strong>Click to reconnect.</strong></a>
+		</div>
+
+		<div class="alert alert-success" style="display: none" id="websocket-success"> 
+			<button type="button" class="close alert-close" onclick="$('#websocket-success').hide().fadeOut(600)">&times;</button>
+			<strong>Success!</strong> WebSocket connection established.  
+		</div>
+
+		<iframe id="text-editor"></iframe> 
+		<br/>
+		<h5 id="user-list"><span class="label label-success">Online users:</span></h5>
+	</div>
+
+	<div id="wikipedia-div"><iframe id="wikipedia-iframe" src=http://en.m.wikipedia.org/wiki/></iframe></div>
+	
+	<div id="chat-wrapper">
+		<div id="chat-messages"></div>
+		<div id="chat-input" class="input-group">
+			<input id="chat-input-text" type="text" class="form-control input-sm" placeholder="Type your message here...">
+			<span class="input-group-btn">
+				<button class="btn btn-warning btn-sm" id="chat-send">Send</button>
+			</span>
+		</div>
+	</div>
+
+</body>
+
+<script type="text/javascript" src="static/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="static/jquery-ui-1.11.0/jquery-ui.js"></script>
+<script type="text/javascript" src="static/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="index.js"></script>
+
+</html>

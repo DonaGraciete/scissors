@@ -1,0 +1,10 @@
+extends layout
+
+block content
+	h1 #{title}
+
+	ul#messages
+	form#formAddUser(name="adduser",method="post",action="")
+		input#m(type="text", name="message")
+		button#btnSubmit(type="submit") submit
+		

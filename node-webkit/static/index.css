@@ -1,0 +1,57 @@
+#wrapper {
+	width:300px; 
+	height:20px; 
+	position:relative;
+}
+
+#editor{
+	width:550px;
+	padding: 5px;
+	border: dotted 1px;
+}
+
+#text-editor{
+	width: 100%;
+	height:170px;
+}
+
+#wikipedia-iframe, #chat-wrapper, #new-project{
+	width:550px;
+	padding: 5px;
+	border: dotted 1px;
+	font-family: Helvetica, Arial, sans-serif;
+	height:300px;
+}
+
+#chat-messages {
+	width:100%;
+	height:90%;
+	overflow-y:auto;
+}
+
+#chat-input {
+	width:100%;
+	height:10%;
+	overflow-y:auto;
+}
+
+.received-messages {
+	float:left;
+	text-align: left;
+	max-width:90%;
+	white-space: no wrap;
+	clear:both;
+}
+
+.sent-messages {
+	float:right;
+	max-width:90%;
+	white-space: no wrap;
+	clear: both;
+	word-wrap: break-word;
+}
+
+.left {
+	float:left;
+	margin:5px;
+}

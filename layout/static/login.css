@@ -1,0 +1,19 @@
+a {
+	cursor: pointer;
+}
+
+.login-form {
+	width: 300px;
+}
+
+.register-form {
+	width: 300px;
+}
+
+#alternatives {
+	margin-top:10px;
+}
+
+.hidden {
+	display:none;
+}

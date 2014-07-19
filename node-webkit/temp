@@ -1,0 +1,13 @@
+			switch (data.type) {
+				case "message": 		
+				$("#text-editor").contents().find("body").html(evt.data.content.text);
+				break;
+				case "user-login":
+				$("#user-list").append("<li class=\"logged-users " + data.content.fromId "\"> User "+data.content.fromId + "</li>");
+				break;
+				case "user-logout":
+				$(".logged-data " + String(users.content.fromId)).fadeOut(600);
+				break;
+			};
+		};
+	};
