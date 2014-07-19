@@ -1,4 +1,4 @@
-scissors (melo é gay)
+scissos (melo é gay)
 ========
 
 LX Reactor 2014
