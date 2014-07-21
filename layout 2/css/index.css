@@ -27,6 +27,12 @@ html, body {
 	margin-right:1px;
 }
 
+#top-editor-row {
+	text-align: center;
+}
+
+
+
 #middle-file-row, #middle-widget-row{
 	height:70%;
 }
