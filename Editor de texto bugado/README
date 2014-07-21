@@ -1,3 +1,0 @@
-Todas as funcionalidades que se acedem clicando em opcoes que nas
-estao dropdowns dao problema. Se clicarem percebem que perdem o focus no editor
-e o cursor passa para a posicao inicial, em vez de continuar no mesmo sitio.
