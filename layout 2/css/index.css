@@ -28,10 +28,10 @@ html, body {
 }
 
 #top-editor-row {
-	display: table;
-	position: relative;
+	/*display: table;
+	position: relative;*/
 	text-align: center;
-	width: 101%;
+	/*width: 100%;*/
 }
 
 #middle-file-row, #middle-widget-row{
