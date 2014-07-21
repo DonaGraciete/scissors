@@ -31,7 +31,7 @@ function webSocketConnect() {
 					console.log("file recieved");
 					files.push(data.content);
 					$("#file-list").append("<li id="+data.content._id+">" + data.content.name + "</li>");
-					console.log($("#file-list li"));
+					//console.log($("#file-list li"));
 					break;
 				case "chat-start":
 					console.log("messages recieved from file "+fileChatInUse.name+": "+data.content.messagesToAdd.length);

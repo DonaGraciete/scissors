@@ -13,26 +13,27 @@ $("#file-list").click(function(event){
 
 	var index = indexOfId(files,event.target.id);
 	console.log("index: "+index);
+
 	var file = files[index];
 	console.log("file's chat: "+file.chat);
 
-	//define current file's cache
+	//	Define current file's cache
 	fileChatInUse.index = index;
 	fileChatInUse.name = file.name;
 	fileChatInUse.id = file._id;
 
-	//add existing messages
+	//	Add existing messages
 	for(var i=0;i<file.chat.length;++i){
 		var message = file.chat[i].message;
 		$("#chat-messages").append("<div class='sent-messages well well-sm'><strong>Username</strong><br/>" + message + "</div>");
 		console.log("added existing message to chat");
 	}
 
-	//get newest messages
+	//	Get newest messages
 	var length = file.chat.length;
 	console.log("file's length: "+length);
 
-	sendChatStartMessage(event.target.id);
+	sendChatStartMessage(event.target.id,length);
 });
 
 $("#chat-input-text").keypress(function(event) {

@@ -37,7 +37,7 @@ function sendChatMessage (message) {
 	}));
 };
 
-function sendChatStartMessage (id) {
+function sendChatStartMessage (id,length) {
 	ws.send(JSON.stringify({
 		type:"chat-start",
 		content: {
