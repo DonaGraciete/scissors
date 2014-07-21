@@ -28,7 +28,10 @@ html, body {
 }
 
 #top-editor-row {
+	display: table;
+	position: relative;
 	text-align: center;
+	width: 101%;
 }
 
 

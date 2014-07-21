@@ -18,7 +18,7 @@
 <body style="width:100%; height:100%">
 
 	<div class="modal fade" id="new-file-modal">
-	<!-- New File Modal -->
+		<!-- New File Modal -->
 
 		<div class="modal-dialog">
 
@@ -102,147 +102,143 @@
 		<div class="top editor row panel panel-default" id="top-editor-row"> 
 			<!-- Top Editor Row -->
 
-			<div id="editor-toolbar">
+			<div class="btn-group btn-group-sm">
+				<!-- Text Type (headers, quotes, etc)-->
 
-				<div class="btn-group btn-group-sm">
-					<!-- Text Type (headers, quotes, etc)-->
+				<button type="button" class="btn btn-default navbar-btn"><i class="fa fa-header"></i></button>
+				<button type="button" class="btn btn-default dropdown-toggle navbar-btn" data-toggle="dropdown">
+					<span class="caret"></span>
+					<span class="sr-only"></span>
+				</button>
 
-					<button type="button" class="btn btn-default navbar-btn"><i class="fa fa-header"></i></button>
-					<button type="button" class="btn btn-default dropdown-toggle navbar-btn" data-toggle="dropdown">
-						<span class="caret"></span>
-						<span class="sr-only"></span>
-					</button>
+				<ul id="text-type" class="dropdown-menu" role="menu">
 
-					<ul id="text-type" class="dropdown-menu" role="menu">
+					<li><a href="javascript:;" id="p">Normal</a></li>
+					<li><a href="javascript:;" id="blockquote"><blockquote> Quote </blockquote></a></li>
+					<li><a href="javascript:;" id="h1"><h1>Header 1</h1></a></li>
+					<li><a href="javascript:;" id="h2"><h2>Header 2</h2></a></li>
+					<li><a href="javascript:;" id="h3"><h3>Header 3</h3></a></li>
+					<li><a href="javascript:;" id="h4"><h4>Header 4</h4></a></li>
+					<li><a href="javascript:;" id="h5"><h5>Header 5</h5></a></li>
+					<li><a href="javascript:;" id="h6"><h6>Header 6</h6></a></li>
 
-						<li><a href="javascript:;" id="p">Normal</a></li>
-						<li><a href="javascript:;" id="blockquote"><blockquote> Quote </blockquote></a></li>
-						<li><a href="javascript:;" id="h1"><h1>Header 1</h1></a></li>
-						<li><a href="javascript:;" id="h2"><h2>Header 2</h2></a></li>
-						<li><a href="javascript:;" id="h3"><h3>Header 3</h3></a></li>
-						<li><a href="javascript:;" id="h4"><h4>Header 4</h4></a></li>
-						<li><a href="javascript:;" id="h5"><h5>Header 5</h5></a></li>
-						<li><a href="javascript:;" id="h6"><h6>Header 6</h6></a></li>
+				</ul>
 
-					</ul>
+			</div> <!-- End of Text Type (headers, quotes, etc)-->
 
-				</div> <!-- End of Text Type (headers, quotes, etc)-->
+			<div id="word-format" class="btn-group btn-group-sm" data-toggle="buttons">
+				<!-- Word Formatting (bold, italic, etc)-->
 
-				<div id="word-format" class="btn-group btn-group-sm" data-toggle="buttons">
-					<!-- Word Formatting (bold, italic, etc)-->
+				<button value="bold" type="button" class="btn btn-default"><i class="fa fa-bold"></i></button>
+				<button value="italic" type="button" class="btn btn-default"><i class="fa fa-italic"></i></button>
+				<button value="underline" type="button" class="btn btn-default"><i class="fa fa-underline"></i></button>
+				<button value="strikethrough" type="button" class="btn btn-default"><i class="fa fa-strikethrough"></i></button>
+				<button value="removeformat" type="button" class="btn btn-default"><i class="fa fa-eraser"></i></button>
 
-					<button value="bold" type="button" class="btn btn-default"><i class="fa fa-bold"></i></button>
-					<button value="italic" type="button" class="btn btn-default"><i class="fa fa-italic"></i></button>
-					<button value="underline" type="button" class="btn btn-default"><i class="fa fa-underline"></i></button>
-					<button value="strikethrough" type="button" class="btn btn-default"><i class="fa fa-strikethrough"></i></button>
-					<button value="removeformat" type="button" class="btn btn-default"><i class="fa fa-eraser"></i></button>
+			</div> <!-- End of Word Formatting (bold, italic, etc)-->
 
-				</div> <!-- End of Word Formatting (bold, italic, etc)-->
+			<div class="btn-group btn-group-sm">
+				<!-- Font Family -->
 
-				<div class="btn-group btn-group-sm">
-					<!-- Font Family -->
+				<button type="button" class="btn btn-default">Family</button>
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					<span class="caret"></span>
+					<span class="sr-only"></span>
+				</button>
 
-					<button type="button" class="btn btn-default">Family</button>
-					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-						<span class="caret"></span>
-						<span class="sr-only"></span>
-					</button>
+				<ul id="font-family" class="dropdown-menu" role="menu">
 
-					<ul id="font-family" class="dropdown-menu" role="menu">
+					<li><a href="javascript:;" id="arial">Arial</a></li>
+					<li><a href="javascript:;" id="courier">Courier</a></li>
+					<li><a href="javascript:;" id="helvetica">Helvetica</a></li>
+					<li><a href="javascript:;" id="serif">Serif</a></li>
+					<li><a href="javascript:;" id="times new roman">Times New Roman</a></li>
+					<li><a href="javascript:;" id="verdana">Verdana</a></li>
 
-						<li><a href="javascript:;" id="arial">Arial</a></li>
-						<li><a href="javascript:;" id="courier">Courier</a></li>
-						<li><a href="javascript:;" id="helvetica">Helvetica</a></li>
-						<li><a href="javascript:;" id="serif">Serif</a></li>
-						<li><a href="javascript:;" id="times new roman">Times New Roman</a></li>
-						<li><a href="javascript:;" id="verdana">Verdana</a></li>
+				</ul>
 
-					</ul>
+			</div> <!-- End of Font Family -->
 
-				</div> <!-- End of Font Family -->
+			<div class="btn-group btn-group-sm">
+				<!-- Font Size -->
 
-				<div class="btn-group btn-group-sm">
-					<!-- Font Size -->
+				<button type="button" class="btn btn-default"><i class="fa fa-text-height"></i></button>
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					<span class="caret"></span>
+					<span class="sr-only"></span>
+				</button>
 
-					<button type="button" class="btn btn-default"><i class="fa fa-text-height"></i></button>
-					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-						<span class="caret"></span>
-						<span class="sr-only"></span>
-					</button>
+				<ul id="font-size" class="dropdown-menu" role="menu">
 
-					<ul id="font-size" class="dropdown-menu" role="menu">
+					<li><a href="javascript:;" id="1">Very small</a></li>
+					<li><a href="javascript:;" id="2">A bit small</a></li>
+					<li><a href="javascript:;" id="3">Normal</a></li>
+					<li><a href="javascript:;" id="4">Medium-large</a></li>
+					<li><a href="javascript:;" id="5">Big</a></li>
+					<li><a href="javascript:;" id="6">Very big</a></li>
+					<li><a href="javascript:;" id="7">Maximum</a></li>
 
-						<li><a href="javascript:;" id="1">Very small</a></li>
-						<li><a href="javascript:;" id="2">A bit small</a></li>
-						<li><a href="javascript:;" id="3">Normal</a></li>
-						<li><a href="javascript:;" id="4">Medium-large</a></li>
-						<li><a href="javascript:;" id="5">Big</a></li>
-						<li><a href="javascript:;" id="6">Very big</a></li>
-						<li><a href="javascript:;" id="7">Maximum</a></li>
+				</ul>
 
-					</ul>
+			</div> <!-- End of Font Size -->
 
-				</div> <!-- End of Font Size -->
+			<div class="btn-group btn-group-sm">
+				<!-- Font Color -->
 
-				<div class="btn-group btn-group-sm">
-					<!-- Font Color -->
+				<button type="button" class="btn btn-default"><i class="fa fa-font"></i></button>
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					<span class="caret"></span>
+					<span class="sr-only"></span>
+				</button>
 
-					<button type="button" class="btn btn-default"><i class="fa fa-font"></i></button>
-					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-						<span class="caret"></span>
-						<span class="sr-only"></span>
-					</button>
+				<ul id="font-color" class="dropdown-menu" role="menu">
 
-					<ul id="font-color" class="dropdown-menu" role="menu">
+					<li><a href="javascript:;" id="red">Red</a></li>
+					<li><a href="javascript:;" id="green">Green</a></li>
+					<li><a href="javascript:;" id="blue">Blue</a></li>
+					<li><a href="javascript:;" id="black">Black</a></li>
 
-						<li><a href="javascript:;" id="red">Red</a></li>
-						<li><a href="javascript:;" id="green">Green</a></li>
-						<li><a href="javascript:;" id="blue">Blue</a></li>
-						<li><a href="javascript:;" id="black">Black</a></li>
+				</ul>
 
-					</ul>
+			</div> <!-- End of Font Color -->
 
-				</div> <!-- End of Font Color -->
+			<div class="btn-group btn-group-sm">
+				<!-- Highlight Color -->
 
-				<div class="btn-group btn-group-sm">
-					<!-- Highlight Color -->
+				<button type="button" class="btn btn-default"><i class="fa fa-font"></i></button>
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					<span class="caret"></span>
+					<span class="sr-only"></span>
+				</button>
 
-					<button type="button" class="btn btn-default"><i class="fa fa-font"></i></button>
-					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-						<span class="caret"></span>
-						<span class="sr-only"></span>
-					</button>
+				<ul id="highlight-color" class="dropdown-menu" role="menu">
 
-					<ul id="highlight-color" class="dropdown-menu" role="menu">
+					<li><a href="javascript:;" id="red">Red</a></li>
+					<li><a href="javascript:;" id="green">Green</a></li>
+					<li><a href="javascript:;" id="blue">Blue</a></li>
+					<li><a href="javascript:;" id="yellow">Yellow</a></li>
 
-						<li><a href="javascript:;" id="red">Red</a></li>
-						<li><a href="javascript:;" id="green">Green</a></li>
-						<li><a href="javascript:;" id="blue">Blue</a></li>
-						<li><a href="javascript:;" id="yellow">Yellow</a></li>
+				</ul>
 
-					</ul>
+			</div> <!-- End of Highlight Color -->
 
-				</div> <!-- End of Highlight Color -->
+			<div class="btn-group btn-group-sm">
+				<!-- Lists -->
 
-				<div class="btn-group btn-group-sm">
-					<!-- Lists -->
+				<button value="insertunorderedlist" type="button" class="btn btn-default"><i class="fa fa-list-ul"></i></button>
+				<button value="insertorderedlist" type="button" class="btn btn-default"><i class="fa fa-list-ol"></i></button>
 
-					<button value="insertunorderedlist" type="button" class="btn btn-default"><i class="fa fa-list-ul"></i></button>
-					<button value="insertorderedlist" type="button" class="btn btn-default"><i class="fa fa-list-ol"></i></button>
+			</div> <!-- End of Lists -->
 
-				</div> <!-- End of Lists -->
+			<div class="btn-group btn-group-sm">
+				<!-- Text Allignment -->
 
-				<div class="btn-group btn-group-sm">
-					<!-- Text Allignment -->
+				<button value="justifyleft" type="button" class="btn btn-default"><i class="fa fa-align-left"></i></button>
+				<button value="justifycenter" type="button" class="btn btn-default"><i class="fa fa-align-center"></i></button>
+				<button value="justifyright" type="button" class="btn btn-default"><i class="fa fa-align-right"></i></button>
+				<button value="justifyfull" type="button" class="btn btn-default"><i class="fa fa-align-justify"></i></button>
 
-					<button value="justifyleft" type="button" class="btn btn-default"><i class="fa fa-align-left"></i></button>
-					<button value="justifycenter" type="button" class="btn btn-default"><i class="fa fa-align-center"></i></button>
-					<button value="justifyright" type="button" class="btn btn-default"><i class="fa fa-align-right"></i></button>
-					<button value="justifyfull" type="button" class="btn btn-default"><i class="fa fa-align-justify"></i></button>
-
-				</div> <!-- End of Text Allignment-->
-
-			</div>
+			</div> <!-- End of Text Allignment-->
 
 		</div> <!-- End of Top Editor Row -->
 		
