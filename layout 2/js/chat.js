@@ -1,4 +1,12 @@
 //CHAT
+function indexOfId(array,id){
+	for(var i=0;i<array.length;++i){
+		if(array[i]._id == id){
+			return i;
+		}
+	}
+	return -1;
+}
 
 $("#file-list").click(function(event){
 	console.log(event.target.id+" clicked");

@@ -19,3 +19,7 @@ $("#create-new-file-button").click(function (event){
 	sendFileMessage(fileName, fileUsers);
 
 });
+
+//Select new file on file list
+$(".list-group-item").click(function (event) {
+});
