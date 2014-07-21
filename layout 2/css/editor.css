@@ -1,8 +1,7 @@
-/*#editor-toolbar {
+#editor-toolbar {
     display: table-cell;
-    position: absolute;
     vertical-align: middle;
-}*/
+}
 
 #text-box {
 
@@ -33,4 +32,8 @@
 
 .navbar li {
     cursor: pointer;
+}
+
+.btn {
+    margin: 0;
 }
