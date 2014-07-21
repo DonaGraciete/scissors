@@ -10,6 +10,7 @@ var http = require('http');
 var server = http.Server(app);
 
 var mongo = require('mongodb');
+var ObjectId = mongo.ObjectID;
 var db = require("mongoskin").db('mongodb://jaques:fidejaques114@kahana.mongohq.com:10015/scissors_db');
 
 //WebSockets
@@ -34,6 +35,7 @@ wss.on('connection', function(ws) {
         //enviar files para o user
         result.files.forEach(function(id){
             db.collection("files").findOne({_id:id},function(err,file){
+                console.log("file sent to user "+username);
                 console.log(file);
                 //sendFile
                 ws.send(JSON.stringify({
@@ -57,7 +59,7 @@ wss.on('connection', function(ws) {
 
         switch(data.type){
             case "new-file":
-                console.log("NEW-FILE:");
+                console.log("\nNEW-FILE:");
                 db.collection("users").find({username:{$in:data.content.users}}).toArray(function(err,results){
                     console.log(results);
                     var idArray = [];
@@ -85,20 +87,48 @@ wss.on('connection', function(ws) {
                 });
                 break;
             case "chat-start":
-                console.log("USER "+username+" just entered chat "+data.content.id);
-                db.collection("files").findOne({_id:data.content.id},function(err,file){
+                console.log("\nUSER "+username+" just entered chat "+data.content.id);
+                db.collection("files").findOne({_id:new ObjectId(data.content.id)},function(err,file){
                     //console.log(file);
+                    console.log("client's chat length: "+data.content.length);
+                    console.log("server's chat length: "+file.chat.length);
                     var messagesDiff = -(file.chat.length - data.content.length);
-                    console.log("messages lacking: "+file.chat.slice(messagesDiff));
-                    ws.send(JSON.stringify({
-                        type: "chat-messages",
-                        content: {
-                            //id: data.content.id,
-                            messagesToAdd:file.chat.slice(messagesDiff)
+
+                    //caso o chat do ficheiro esteja up-to-date
+                    if(messagesDiff == 0){
+                        ws.send(JSON.stringify({
+                            type: "chat-start",
+                            content: {
+                                //id: data.content.id,
+                                messagesToAdd:[]
+                            }
+                        }));
+                    }         
+                    //caso o chat do ficheiro não esteja up-to-date      
+                    else{
+                        ws.send(JSON.stringify({
+                            type: "chat-start",
+                            content: {
+                                //id: data.content.id,
+                                messagesToAdd:file.chat.slice(messagesDiff)
+                            }
+                        }));
+                    }    
+                });
+                break;
+            case "chat-message":
+                console.log("\nUSER "+username+" just typed a new message to chat "+data.content.id)
+
+                //redireccionar mensagem para os users do ficheiro
+                for(var i=0;i<data.content.users.length;++i){
+                    openSockets[data.content.users[i]].send(JSON.stringify({
+                        type:"chat-message",
+                        content:{
+                            chat: data.content.chat,
+                            id: data.content.id
                         }
                     }));
-                    
-                });
+                }
                 break;
         }
         

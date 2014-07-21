@@ -33,7 +33,7 @@ function webSocketConnect() {
 					$("#file-list").append("<li id="+data.content._id+">" + data.content.name + "</li>");
 					console.log($("#file-list li"));
 					break;
-				case "chat-messages":
+				case "chat-start":
 					console.log("messages recieved from file "+fileChatInUse.name+": "+data.content.messagesToAdd.length);
 					var file;
 					var message;
@@ -43,6 +43,21 @@ function webSocketConnect() {
 						message=messagesToAdd[i].message;
 						$("#chat-messages").append("<div class='sent-messages well well-sm'><strong>Username</strong><br/>" + message + "</div>");
 					}
+					break;
+				case "chat-message":
+					console.log("chat message recieved");
+
+					//se a mensagem recebida for do chat activo --> adicionar à cache e ao chat UI.
+					//se não for --> adicionar só à cache.
+
+					recievedFileChatIndex = indexOfId(files,data.content.id);
+					files[recievedFileChatIndex].chat.push(data.content.chat);
+					
+					if(recievedFileChatIndex == fileChatInUse.index){
+						var message = data.content.chat.message;
+						$("#chat-messages").append("<div class='sent-messages well well-sm'><strong>Username</strong><br/>" + message + "</div>");
+					}
+
 					break;
 				case "my-info":
 					//var userId = data.content.id; //INCOMPLETO
@@ -112,28 +127,32 @@ $("#file-list").click(function(event){
 	console.log(event.target.id+" clicked");
 
 	var index = indexOfId(files,event.target.id);
+	console.log("index: "+index);
 	var file = files[index];
-	console.log(file.chat);
+	console.log("file's chat: "+file.chat);
+
+	//define current file's cache
+	fileChatInUse.index = index;
+	fileChatInUse.name = file.name;
+	fileChatInUse.id = file._id;
 
 	//add existing messages
 	for(var i=0;i<file.chat.length;++i){
 		var message = file.chat[i].message;
 		$("#chat-messages").append("<div class='sent-messages well well-sm'><strong>Username</strong><br/>" + message + "</div>");
+		console.log("added existing message to chat");
 	}
 
 
 	//get newest messages
-	fileChatInUse.index = index;
-	fileChatInUse.name = file.name;
-	fileChatInUse.id = file._id;
-
 	var length = file.chat.length;
+	console.log("file's length: "+length);
 
 	ws.send(JSON.stringify({
 		type:"chat-start",
 		content: {
 			id: event.target.id,
-			lenght: length
+			length: length
 		}
 	}));
 });
@@ -143,8 +162,18 @@ $("#chat-input-text").keypress(function(event) {
 		event.preventDefault();
 		message=$(this).val();
 		if (message != '') {
-			//$("#chat-messages").append("<p class='sent-messages alert alert-info'> <strong>Username</strong> <br/>" + message + "</p>");
-			$("#chat-messages").append("<div class='sent-messages well well-sm'><strong>Username</strong><br/>" + message + "</div>");
+			//PASSAR ISTO PARA UMA FUNÇÃO
+
+			//$("#chat-messages").append("<div class='sent-messages well well-sm'><strong>Username</strong><br/>" + message + "</div>");
+			ws.send(JSON.stringify({
+				type: "chat-message",
+				content: {
+					chat: {message:message},
+					id: fileChatInUse.id,
+					users: files[fileChatInUse.id].users
+				}
+			}));
+
 			$(this).val('');
 		}
 	}
