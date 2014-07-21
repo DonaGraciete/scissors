@@ -1,3 +1,12 @@
+#file-list li{
+	background-color: gray;
+	cursor: pointer;
+}
+
+#file-list li:hover{
+	background-color: blue;
+}
+
 #wrapper {
 	width:300px; 
 	height:20px; 

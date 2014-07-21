@@ -20,6 +20,9 @@ var openSockets = {};
 
 wss.on('connection', function(ws) {
 
+
+    console.log("USER-LOGIN");
+
     //testar para url's invalidos
     var username = ws.upgradeReq.url.match(/(\w+)(?:\/*)$/i)[1];
     var userId;
@@ -27,6 +30,7 @@ wss.on('connection', function(ws) {
     db.collection("users").findOne({username:username},function(err,result){
         userId = result._id;
         openSockets[userId] = ws;
+        console.log("new socket: "+userId);
         //enviar files para o user
         result.files.forEach(function(id){
             db.collection("files").findOne({_id:id},function(err,file){
@@ -43,6 +47,7 @@ wss.on('connection', function(ws) {
     console.log("connected: " + username);
 
     console.log("current connections: " +Object.keys(openSockets));
+    
     //falta begin info
 
     ws.on('message', function(JSONdata) {
@@ -52,7 +57,7 @@ wss.on('connection', function(ws) {
 
         switch(data.type){
             case "new-file":
-                console.log("new-file");
+                console.log("NEW-FILE:");
                 db.collection("users").find({username:{$in:data.content.users}}).toArray(function(err,results){
                     console.log(results);
                     var idArray = [];
@@ -61,7 +66,7 @@ wss.on('connection', function(ws) {
                         idArray.push(results[i]._id);
                     }
                     
-                    db.collection("files").insert({name:data.content.name, users:idArray},function(err,item){
+                    db.collection("files").insert({name:data.content.name, users:idArray, chat:[]},function(err,item){
                         console.log(item[0]._id);
 
                         db.collection("users").update({_id:{$in:idArray}},{$push:{files:item[0]._id}},{multi:true},function(err,subitems){
@@ -77,6 +82,22 @@ wss.on('connection', function(ws) {
                             }
                         }
                     });
+                });
+                break;
+            case "chat-start":
+                console.log("USER "+username+" just entered chat "+data.content.id);
+                db.collection("files").findOne({_id:data.content.id},function(err,file){
+                    //console.log(file);
+                    var messagesDiff = -(file.chat.length - data.content.length);
+                    console.log("messages lacking: "+file.chat.slice(messagesDiff));
+                    ws.send(JSON.stringify({
+                        type: "chat-messages",
+                        content: {
+                            //id: data.content.id,
+                            messagesToAdd:file.chat.slice(messagesDiff)
+                        }
+                    }));
+                    
                 });
                 break;
         }
