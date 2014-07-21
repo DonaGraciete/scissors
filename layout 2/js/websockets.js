@@ -1,4 +1,4 @@
-function sendLoginMessage (ws, userId) {
+function sendLoginMessage () {
 	ws.send(JSON.stringify({
 		type:"user-login",
 		content: {
@@ -7,7 +7,7 @@ function sendLoginMessage (ws, userId) {
 	}));
 };
 
-function sendLogOutMessage (ws, userId) {
+function sendLogOutMessage () {
 	ws.send(JSON.stringify({
 		type:"user-logout",
 		content: {
@@ -16,26 +16,26 @@ function sendLogOutMessage (ws, userId) {
 	}));
 };
 
-function sendNewProjectMessage (ws) {
+function sendFileMessage (fileName, fileUsers) {
 	ws.send(JSON.stringify({
-			type:"new-project",
-			content: {
-				name: projectName,
-				users: projectUsers
-			}
-		}));
+		type:"new-file",
+		content: {
+			name: fileName,
+			users: fileUsers
+		}
+	}));
 };
 
-/*function sendTextMessage (ws) {
+function sendChatMessage (message) {
 	ws.send(JSON.stringify({
-			type:"new-project",
-			content: {
-				name: projectName,
-				users: projectUsers
-			}
-		}));
-};*/
-
+		type: "chat-message",
+		content: {
+			chat: {message:message},
+			id: fileChatInUse.id,
+			users: files[fileChatInUse.index].users
+		}
+	}));
+};
 
 function webSocketConnect() {
 	ws = new WebSocket (url + username);
@@ -44,24 +44,24 @@ function webSocketConnect() {
 			var data=JSON.parse(evt.data);
 			switch (data.type) {
 				case "file":
-					console.log("file recieved");
-					files.push(data.content);
-					$("#file-list").append("<li id="+data.content._id+">" + data.content.name + "</li>");
-					console.log($("#file-list li"));
-					break;
+				console.log("file recieved");
+				files.push(data.content);
+				$("#file-list").append("<li class='list-group-item' id="+data.content._id+">" + data.content.name + "</li>");
+				console.log($("#file-list li"));
+				break;
 				case "chat-start":
-					console.log("messages recieved from file "+fileChatInUse.name+": "+data.content.messagesToAdd.length);
-					var file;
-					var message;
-					for(var i=0;i<data.content.messagesToAdd;++i){
-						file=files[fileChatInUse.index];
-						file.chat.push(data.content.messagesToAdd[i]);
-						message=messagesToAdd[i].message;
-						$("#chat-messages").append("<div class='sent-messages well well-sm'><strong>Username</strong><br/>" + message + "</div>");
-					}
-					break;
+				console.log("messages recieved from file "+fileChatInUse.name+": "+data.content.messagesToAdd.length);
+				var file;
+				var message;
+				for(var i=0;i<data.content.messagesToAdd;++i){
+					file=files[fileChatInUse.index];
+					file.chat.push(data.content.messagesToAdd[i]);
+					message=messagesToAdd[i].message;
+					$("#chat-messages").append("<div class='sent-messages well well-sm'><strong>Username</strong><br/>" + message + "</div>");
+				}
+				break;
 				case "chat-message":
-					console.log("chat message recieved");
+				console.log("chat message recieved");
 
 					//se a mensagem recebida for do chat activo --> adicionar à cache e ao chat UI.
 					//se não for --> adicionar só à cache.
@@ -75,15 +75,15 @@ function webSocketConnect() {
 					}
 
 					break;
-				case "my-info":
+					case "my-info":
 					//var userId = data.content.id; //INCOMPLETO
 					//console.log(user);
 					break;
-				case "user-login":
+					case "user-login":
 					alert("user "+data.content.username+" just logged in");
 				//var new_user = $("<li>").addClass("logged-users-" + data.content.fromId).append("User " + data.content.fromId);
 				//$("#user-list").append(new_user);
-					break;
+				break;
 				/*
 				case "message": 		
 				$("#text-editor").contents().find("body").html(evt.data.content.text);
@@ -107,11 +107,9 @@ function webSocketConnect() {
 				}
 			}
 			)
-			);
-		*/
-		$("#websocket-success").fadeOut(600);
-		$("#websocket-failed").fadeIn(600);
-	}
+			);*/
+
+	};
 };
 
 $("#reconnect").click(function () {

@@ -16,12 +16,6 @@ $("#create-new-file-button").click(function (event){
 	var fileUsers = $("input[name=file-users]").val().split(" ");
 	fileUsers.push(username);
 
-	ws.send(JSON.stringify({
-		type:"new-file",
-		content: {
-			name: fileName,
-			users: fileUsers
-		}
-	}));
+	sendFileMessage(fileName, fileUsers);
 
 });

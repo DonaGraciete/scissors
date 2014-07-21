@@ -38,18 +38,9 @@ $("#chat-input-text").keypress(function(event) {
 		event.preventDefault();
 		var message=$(this).val();
 		if (message != '') {
-			//PASSAR ISTO PARA UMA FUNÇÃO
-
 			//$("#chat-messages").append("<div class='sent-messages well well-sm'><strong>Username</strong><br/>" + message + "</div>");
 
-			ws.send(JSON.stringify({
-				type: "chat-message",
-				content: {
-					chat: {message:message},
-					id: fileChatInUse.id,
-					users: files[fileChatInUse.index].users
-				}
-			}));
+			sendChatMessage(message);
 
 			$(this).val('');
 		}
