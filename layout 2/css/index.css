@@ -27,12 +27,19 @@ html, body {
 	margin-right:1px;
 }
 
-#main-toolbar{
-	background-color: transparent;
+#top-main-row {
+	width: 100%;
+	display: table;
+	text-align: center;
+	
+}
+
+#btn-group-main-toolbar {
+	display: table-cell;
+    vertical-align: middle;
 }
 
 #top-editor-row {
-	background-color: transparent;
 	width: 102%;
 	display: table;
 	text-align: center;

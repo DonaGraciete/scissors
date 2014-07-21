@@ -55,16 +55,20 @@
 
 	<div class="col-xs-2 col-md-2" id="file-row" style="height:100%">
 		<!-- Left Side -->
-		
-		<div class="bt-group btn-group top" id="main-toolbar">
+
+		<div class="top panel panel-default" id="top-main-row" style="border:1px solid black"> 
 			<!-- Main Toolbar -->
 
-			<button type="button" class="btn btn-default" id="new-file-button"><i class="fa fa-lg fa-plus"></i></button>
-			<button type="button" class="btn btn-default"><i class="fa fa-lg fa-floppy-o"></i></button>
-			<button type="button" class="btn btn-default"><i class="fa fa-lg fa-print"></i></button>
-			<button type="button" class="btn btn-default"><i class="fa fa-lg fa-envelope-o"></i></button>
+			<div class="btn-group btn-group-sm" id="btn-group-main-toolbar" style="border:1px solid blue">
 
-		</div> <!-- End of Main Toolbar -->
+				<button type="button" class="btn btn-default" id="new-file-button"><i class="fa fa-plus"></i></button>
+				<button type="button" class="btn btn-default"><i class="fa fa-floppy-o"></i></button>
+				<button type="button" class="btn btn-default"><i class="fa fa-print"></i></button>
+				<button type="button" class="btn btn-default"><i class="fa fa-envelope-o"></i></button>
+
+			</div> 
+
+		</div> <!-- End of Main Toolbar -->	
 
 		<div class="middle file row panel panel-success" id="middle-file-row">
 			<!-- File Manager -->
@@ -95,7 +99,7 @@
 	<div class="col-xs-7 col-md-7" id="editor-row" style="height:100%">
 		<!-- Middle Portion -->
 
-		<div class="top editor row " id="top-editor-row">
+		<div class="top editor row panel panel-default" id="top-editor-row">
 			<!-- Top Editor Row -->
 
 			<div id="editor-toolbar">
