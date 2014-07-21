@@ -37,6 +37,16 @@ function sendChatMessage (message) {
 	}));
 };
 
+function sendChatStartMessage (id) {
+	ws.send(JSON.stringify({
+		type:"chat-start",
+		content: {
+			id: id,
+			length: length
+		}
+	}));
+}
+
 function webSocketConnect() {
 	ws = new WebSocket (url + username);
 	ws.onopen = function (evt) {

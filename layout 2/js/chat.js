@@ -32,13 +32,7 @@ $("#file-list").click(function(event){
 	var length = file.chat.length;
 	console.log("file's length: "+length);
 
-	ws.send(JSON.stringify({
-		type:"chat-start",
-		content: {
-			id: event.target.id,
-			length: length
-		}
-	}));
+	sendChatStartMessage(event.target.id);
 });
 
 $("#chat-input-text").keypress(function(event) {

@@ -81,7 +81,8 @@ html, body {
 	background-color: #347bff;
 }
 
-.list-group {
-	position: absolute;
+.scrollable {
+	height:auto;
 	overflow: auto;
+	max-height: 85%;
 }
