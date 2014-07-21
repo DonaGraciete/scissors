@@ -27,7 +27,12 @@ html, body {
 	margin-right:1px;
 }
 
+#main-toolbar{
+	background-color: transparent;
+}
+
 #top-editor-row {
+	background-color: transparent;
 	width: 102%;
 	display: table;
 	text-align: center;
