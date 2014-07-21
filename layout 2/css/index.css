@@ -28,7 +28,7 @@ html, body {
 }
 
 #top-editor-row {
-	width: 100%;
+	width: 102%;
 	display: table;
 	text-align: center;
 }
@@ -40,6 +40,7 @@ html, body {
 #middle-editor-row {
 	background-color: #FFFFFF;
 	height:95%;
+	width: 102%;
 	overflow-y:auto;
 	padding: 15px;
 }
