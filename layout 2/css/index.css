@@ -2,7 +2,7 @@
 
 html, body {
 	overflow: hidden;
-	background-color: #DCDCDC;
+	background-color: #D9E6D5;
 }
 
 .top {
@@ -27,9 +27,11 @@ html, body {
 	margin-right:1px;
 }
 
-#top-file-row {
-	
+#top-editor-row {
+	text-align: center;
 }
+
+
 
 #middle-file-row, #middle-widget-row{
 	height:70%;
