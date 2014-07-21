@@ -118,7 +118,6 @@ wss.on('connection', function(ws) {
                 break;
             case "chat-message":
                 console.log("\nUSER "+username+" just typed a new message to chat "+data.content.id)
-
                 //redireccionar mensagem para os users do ficheiro
                 for(var i=0;i<data.content.users.length;++i){
                     openSockets[data.content.users[i]].send(JSON.stringify({
@@ -129,6 +128,7 @@ wss.on('connection', function(ws) {
                         }
                     }));
                 }
+
                 break;
         }
         

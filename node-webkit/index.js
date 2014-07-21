@@ -1,4 +1,4 @@
-var username = "melo";
+var username = "jaques";
 var userId;
 var files = [];
 var fileChatInUse={};
@@ -160,17 +160,18 @@ $("#file-list").click(function(event){
 $("#chat-input-text").keypress(function(event) {
 	if(event.keyCode==13) {
 		event.preventDefault();
-		message=$(this).val();
+		var message=$(this).val();
 		if (message != '') {
 			//PASSAR ISTO PARA UMA FUNÇÃO
 
 			//$("#chat-messages").append("<div class='sent-messages well well-sm'><strong>Username</strong><br/>" + message + "</div>");
+
 			ws.send(JSON.stringify({
 				type: "chat-message",
 				content: {
 					chat: {message:message},
 					id: fileChatInUse.id,
-					users: files[fileChatInUse.id].users
+					users: files[fileChatInUse.index].users
 				}
 			}));
 
