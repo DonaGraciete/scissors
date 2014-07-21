@@ -82,8 +82,15 @@ html, body {
 	background-color: #347bff;
 }
 
-.scrollable {
+#file-list {
 	height:auto;
 	overflow: auto;
-	max-height: 85%;
+	max-height: 87%;
 }
+
+#contact-list {
+	height:auto;
+	overflow: auto;
+	max-height: 60%;
+}
+
