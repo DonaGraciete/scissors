@@ -9,6 +9,7 @@ function indexOfId(array,id){
 }
 
 $("#file-list").click(function(event){
+
 	console.log(event.target.id+" clicked");
 
 	var index = indexOfId(files,event.target.id);
@@ -21,6 +22,9 @@ $("#file-list").click(function(event){
 	fileChatInUse.index = index;
 	fileChatInUse.name = file.name;
 	fileChatInUse.id = file._id;
+
+	//	Clear current messages
+	$("#chat-messages").empty();
 
 	//	Add existing messages
 	for(var i=0;i<file.chat.length;++i){

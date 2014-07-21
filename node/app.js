@@ -147,20 +147,26 @@ wss.on('connection', function(ws) {
                 break;
 
             case "chat-message":
+                
                 console.log("\nUSER "+username+" just typed a new message to chat "+data.content.id)
-                //redireccionar mensagem para os users do ficheiro
-                for(var i=0;i<data.content.users.length;++i){
-                    if(data.content.users[i] in openSockets){
-                        openSockets[data.content.users[i]].send(JSON.stringify({
-                            type:"chat-message",
-                            content:{
-                                chat: data.content.chat,
-                                id: data.content.id
-                            }
-                        }));
+                
+                //  Adicionar messagem à db
+                db.collection("files").update({_id:new ObjectId(data.content.id)},{$push:{chat:data.content.chat}},function(err,result){
+                    
+                    //  Redirect message to file's users
+                    for(var i=0;i<data.content.users.length;++i){
+                        if(data.content.users[i] in openSockets){
+                            openSockets[data.content.users[i]].send(JSON.stringify({
+                                type:"chat-message",
+                                content:{
+                                    chat: data.content.chat,
+                                    id: data.content.id
+                                }
+                            }));
+                        }
                     }
-                }
 
+                });
                 break;
         }
         
