@@ -14,63 +14,12 @@
 	<link rel="stylesheet" href="css/index.css">
 	<!-- Editor -->
 	<link rel="stylesheet" href="css/editor.css">
-	<!-- Login-Modal -->
-	<link rel="stylesheet" href="css/login.css">
 
 	<title>Scissors</title>
 
 </head>
 
 <body style="width:100%; height:100%">
-
-	<div class="modal fade" id="login-modal">
-		<!-- Login Modal -->
-
-		<div class="modal-dialog">
-
-			<div class="modal-content">
-				<div class="modal-padding">
-					<center>
-						<div class="login-form">
-							<form id="form-signin">
-								<h2 class="form-signin-heading">Please sign in</h2>
-								<input type="username" class="form-control" name="username-signin" placeholder="Username" required autofocus>
-								<input type="password" class="form-control" name="password-signin" placeholder="Password" required>
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" value="remember-me"> Remember me
-									</label>
-								</div>
-								<button type="submit" class="btn btn-lg btn-primary btn-block" id="sign-in">Sign in</button>
-								<div id='alternatives'><a id='forgot-password' class="pull-left">Forgot password?</a><a id='create-account' class="pull-right">Create account</a></div>
-							</form>
-						</div>
-					</center>
-
-					<center>
-						<div class='register-form hidden'>
-							<form id="form-signup">
-								<h2 class="form-signin-heading">Create account</h2>
-								<input type="username" name='username-signup' class="form-control" placeholder="Username" required autofocus>
-								<input type="password" name='password-signup' class="form-control" placeholder="Password" required>
-								<input type="password" name="password-confirm" class="form-control" placeholder="Confirm password" required>
-								<br/>
-								<button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
-								<div id='alternatives'><a id='switch-to-sign-in'>Sign in</a></div>
-							</form>
-						</div>
-					</center>
-
-					<center>
-						<div id="error-message">
-						</div>
-					</center>
-				</div>
-			</div>
-
-		</div>
-
-	</div> <!-- End of Login Modal -->
 
 	<div class="modal fade" id="new-file-modal">
 		<!-- New File Modal -->
@@ -176,13 +125,13 @@
 	<div class="col-xs-2 col-md-2" id="file-row" style="height:100%">
 		<!-- Left Side -->
 
-		<div class="top panel panel-default" id="top-main-row"> 
+		<div class="top panel panel-default" id="top-main-row" style="border:1px solid black"> 
 			<!-- Main Toolbar -->
 
-			<div class="btn-group btn-group-sm" id="btn-group-main-toolbar">
+			<div class="btn-group btn-group-sm" id="btn-group-main-toolbar" style="border:1px solid blue">
 
 				<button type="button" class="btn btn-default" id="new-file-button"><i class="fa fa-plus"></i></button>
-				<button type="button" class="btn btn-default" id="new-pdf-button"><i class="fa fa-floppy-o"></i></button>
+				<button type="button" class="btn btn-default"><i class="fa fa-floppy-o"></i></button>
 				<button type="button" class="btn btn-default"><i class="fa fa-print"></i></button>
 				<button type="button" class="btn btn-default"><i class="fa fa-envelope-o"></i></button>
 
@@ -353,7 +302,7 @@
 
 				</div> <!-- End of Lists -->
 
-				<div class="btn-group btn-group-sm" data-toggle="buttons">
+				<div class="btn-group btn-group-sm">
 					<!-- Text Allignment -->
 
 					<button value="justifyleft" type="button" class="btn btn-default"><i class="fa fa-align-left"></i></button>
@@ -363,7 +312,7 @@
 
 				</div> <!-- End of Text Allignment-->
 
-				<div class="btn-group btn-group-sm" data-toggle="buttons">
+				<div class="btn-group btn-group-sm">
 					<!-- Text Allignment -->
 
 					<button value="createLink" type="button" class="btn btn-default" id="insert-link"><i class="fa fa-link"></i></button>
@@ -392,11 +341,15 @@
 		<!-- Right Side -->
 
 		<div class="top widget row panel panel-default" id="top-widget-row">
-			<img src="assets/wiki_logo.svg" height="20px" class="widget-icon">
+			<img src="assets/wiki_logo.svg" height="20px" width="45px" float: left; class="widget-icon" id="wiki-b">
+			<img src="assets/pri.jpg" height="50px" width="45px" float: left; class="widget-icon"id="pri-b">
+			<img src="assets/ox.png" height="50px" width="45px" float: left; class="widget-icon" id="ox-b">
 		</div>
 
 		<div class="middle widget row panel panel-default" id="middle-widget-row">
-			<!--<iframe id="wikipedia-iframe" class="panel-body" src=http://en.m.wikipedia.org/wiki/></iframe>-->
+			<iframe id="wikipedia-iframe" class="panel-body" src=http://en.m.wikipedia.org/wiki/></iframe>
+			<iframe id="priberam-iframe" class="panel-body" src=http://www.priberam.pt/DLPO/></iframe>
+			<iframe id="oxford-iframe" class="panel-body" src=http://www.oxforddictionaries.com/></iframe>
 		</div>
 
 		<div class="bottom widget row panel panel-default" id="bottom-widget-row">
@@ -420,13 +373,10 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<!-- Bootstrap -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<!-- Login -->
-	<script src="js/login.js"></script>
 	<!-- PNotify -->
 	<script type="text/javascript" src="js/libs/pnotify.custom.min.js"></script>
 	<!-- jsPDF -->
-	<script type="text/javascript" src="js/libs/jsPDF/jspdf.min.js"></script>
-	<script type="text/javascript" src="js/libs/jsPDF/jspdf.plugin.from_html.js"></script>
+	<script type="text/javascript" src="js/libs/jspdf.min.js"></script>
 	<!-- User credentials and data -->
 	<script src="js/userdata.js"></script>
 	<!-- Websocket management -->
@@ -439,8 +389,8 @@
 	<script src="js/chat.js"></script>
 	<!-- Notifications -->
 	<script src="js/notifications.js"></script>
-	<!-- PDF Support -->
-	<script src="js/pdf.js"></script>
+	<!-- Notifications -->
+	<script src="js/widget.js"></script>
 
 </body>
 
