@@ -18,7 +18,7 @@ var WebSocketServer = require('ws').Server;
 var wss = new WebSocketServer({server:server});
 
 /*  Currently open sockets
-*   Schema:{
+*   {
 *       userId:socket
 *   }    
 */
@@ -176,15 +176,7 @@ wss.on('connection', function(ws) {
         console.log("user "+userId+" just left");
         delete openSockets[userId];
     });
-
 });
-
-function sendFile(ws,file){
-    ws.send({
-        type: "file",
-        content: file
-    });
-}
 
 
 //Socket.io
@@ -273,4 +265,3 @@ server.listen(3000,function(){
     var addr = server.address();
     console.log("listening at", addr.address + ":" + addr.port);
 });
-

@@ -28,8 +28,7 @@ $("#file-list").click(function(event){
 
 	//	Add existing messages
 	for(var i=0;i<file.chat.length;++i){
-		var message = file.chat[i].message;
-		$("#chat-messages").append("<div class='sent-messages well well-sm'><strong>Username</strong><br/>" + message + "</div>");
+		$("#chat-messages").append("<div class='sent-messages well well-sm'><strong>"+file.chat[i].username+"</strong><br/>" + file.chat[i].message + "</div>");
 		console.log("added existing message to chat");
 	}
 
