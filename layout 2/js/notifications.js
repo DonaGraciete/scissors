@@ -36,6 +36,9 @@ function webSocketClosedNotification () {
 		});
 
 		notice.get().click(function() {
+			//fecha se clicar no close
+			if ($(e.target).is('.ui-pnotify-closer *, .ui-pnotify-sticker *')) return;
+
 			notice.update({
 				title: "Let's try that again." ,
 				text:('Attempting to reconnect...')
