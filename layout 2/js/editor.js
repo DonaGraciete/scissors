@@ -1,4 +1,8 @@
 var editor = $("#middle-editor-row");
+var options = {
+	"show": "true",
+	"backdrop" : "true"
+};
 
 function formatText(cmd, val) {
     // Executes execCommand and passes focus back to the editor
@@ -28,15 +32,6 @@ function getCmd(str) {
 	}
 }
 
-function launch_modal(mod, op1, op2) {
-	var options = {
-		"show": "true",
-		"backdrop" : "true"
-	};
-
-	mod.modal(options);
-}
-
 
 $(document).ready(function() {
 
@@ -61,7 +56,7 @@ $(document).ready(function() {
 		if( $("#insert-link").hasClass("active") ) {
 
 			if( window.getSelection() ) {
-				launch_modal( $("#insert-link-modal") );
+				$("#insert-link-modal").modal(options);
 			}
 			else { //create a link - modal
 
@@ -71,7 +66,65 @@ $(document).ready(function() {
 		else { // unlink
 
 		}
-
-
 	});
+
+	$("#insert-picture").click(function() {
+		$("#insert-picture-modal").modal(options);
+	});
+
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
