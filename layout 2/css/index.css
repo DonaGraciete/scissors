@@ -112,6 +112,10 @@ html, body {
 	max-height: 88%;
 }
 
+#file-list li{
+	cursor: pointer;
+}
+
 #contact-list {
 	height:auto;
 	overflow: auto;

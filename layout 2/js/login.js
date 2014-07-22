@@ -80,6 +80,7 @@ $("#form-signup").submit(function(event){
 			console.log("success");
 			if(data.result == true){
 				username = loginUsername;
+				$("#login-modal").modal("hide");
 				webSocketConnect();
 			}
 			else{
