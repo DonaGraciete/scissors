@@ -64,14 +64,17 @@ html, body {
 /*WIDGET STUFF*/
 #wiki-b {
 	padding: 10px 10px;
+	cursor: pointer;
 }
 
 #pri-b {
 	padding: 7px 7px;
+	cursor: pointer;
 }
 
 #ox-b {
 	padding: 5px 5px;
+	cursor: pointer;
 }
 
 #wikipedia-iframe {
