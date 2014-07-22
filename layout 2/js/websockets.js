@@ -53,6 +53,8 @@ function sendChatStartMessage (id,length) {
 function webSocketConnect() {
 	ws = new WebSocket (url + username);
 	ws.onopen = function (evt) {
+		webSocketOpenNotification();
+
 		ws.onmessage = function (evt) {
 			var data=JSON.parse(evt.data);
 			switch (data.type) {
@@ -108,6 +110,7 @@ function webSocketConnect() {
 	};
 
 	ws.onclose = function (evt) {
+		webSocketClosedNotification();
 		/*ws.send(
 			JSON.stringify(
 			{
@@ -121,10 +124,6 @@ function webSocketConnect() {
 
 	};
 };
-
-$("#reconnect").click(function () {
-	webSocketConnect();
-});
 
 var ws;
 webSocketConnect();
