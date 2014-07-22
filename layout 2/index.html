@@ -181,7 +181,7 @@
 			<div class="btn-group btn-group-sm" id="btn-group-main-toolbar">
 
 				<button type="button" class="btn btn-default" id="new-file-button"><i class="fa fa-plus"></i></button>
-				<button type="button" class="btn btn-default"><i class="fa fa-floppy-o"></i></button>
+				<button type="button" class="btn btn-default" id="new-pdf-button"><i class="fa fa-floppy-o"></i></button>
 				<button type="button" class="btn btn-default"><i class="fa fa-print"></i></button>
 				<button type="button" class="btn btn-default"><i class="fa fa-envelope-o"></i></button>
 
@@ -419,16 +419,13 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<!-- Bootstrap -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<!-- PNotify -->
-<<<<<<< HEAD
-	<script type="text/javascript" src="js/pnotify.custom.min.js"></script>
 	<!-- Login -->
 	<script src="js/login.js"></script>
-=======
+	<!-- PNotify -->
 	<script type="text/javascript" src="js/libs/pnotify.custom.min.js"></script>
 	<!-- jsPDF -->
-	<script type="text/javascript" src="js/libs/jspdf.min.js"></script>
->>>>>>> 7bf61cdf7572e7c8b00ef20f9eb52f9c3d868731
+	<script type="text/javascript" src="js/libs/jsPDF/jspdf.min.js"></script>
+	<script type="text/javascript" src="js/libs/jsPDF/jspdf.plugin.from_html.js"></script>
 	<!-- User credentials and data -->
 	<script src="js/userdata.js"></script>
 	<!-- Websocket management -->
@@ -441,6 +438,8 @@
 	<script src="js/chat.js"></script>
 	<!-- Notifications -->
 	<script src="js/notifications.js"></script>
+	<!-- Notifications -->
+	<script src="js/pdf.js"></script>
 
 </body>
 
