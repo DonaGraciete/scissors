@@ -30,21 +30,20 @@ function webSocketClosedNotification () {
 			type: 'error',
 			hide: false,
 			buttons: {
+				closer: false,
 				sticker: false
 			},
 			mouse_reset: false,
 		});
 
-		notice.get().click(function() {
-			//fecha se clicar no close
-			if ($(e.target).is('.ui-pnotify-closer *, .ui-pnotify-sticker *')) return;
-
+		notice.get().click(function() {	
 			notice.update({
 				title: "Let's try that again." ,
 				text:('Attempting to reconnect...')
 			});
 
 			webSocketConnect();
+			
 		});
 	});
 };
