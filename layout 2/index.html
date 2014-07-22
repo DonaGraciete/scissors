@@ -9,7 +9,7 @@
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
 	<!-- PNotify -->
-	<link href="css/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
+	<link href="css/libs/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
 	<!-- Layout -->
 	<link rel="stylesheet" href="css/index.css">
 	<!-- Editor -->
@@ -104,15 +104,81 @@
 
 		</div>
 
-	</div> <!-- New File Modal -->
+	</div> <!-- End of New File Modal -->
+
+	<div class="modal fade" id="insert-link-modal">
+		<!-- Insert Link Modal -->
+
+		<div class="modal-dialog">
+
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title">Insert Link</h4>
+				</div>
+
+				<div class="modal-body">
+					<form id="form-project">
+						Displayed text:
+						<input type="text" class="form-control" id="displayed-text" placeholder="Text">
+						<br/>
+
+						URL:
+						<input type="text" class="form-control" id="link-url" placeholder="URL">
+					</form>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" id="create-link">Create</button>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div> <!-- End of Insert Link Modal -->
+
+	<div class="modal fade" id="insert-link-modal">
+		<!-- Insert Picture Modal -->
+
+		<div class="modal-dialog">
+
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title">Insert Picture</h4>
+				</div>
+
+				<div class="modal-body">
+					<form id="form-project">
+						Select from files:
+						<input type="text" class="form-control" name="file-name" placeholder="Path">
+						<br/>
+
+						Image URL:
+						<input type="text" class="form-control" name="file-users" placeholder="URL">
+					</form>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" id="create-link-button">Create</button>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div> <!-- End of Insert Picture Modal -->
 
 	<div class="col-xs-2 col-md-2" id="file-row" style="height:100%">
 		<!-- Left Side -->
 
-		<div class="top panel panel-default" id="top-main-row" style="border:1px solid black"> 
+		<div class="top panel panel-default" id="top-main-row"> 
 			<!-- Main Toolbar -->
 
-			<div class="btn-group btn-group-sm" id="btn-group-main-toolbar" style="border:1px solid blue">
+			<div class="btn-group btn-group-sm" id="btn-group-main-toolbar">
 
 				<button type="button" class="btn btn-default" id="new-file-button"><i class="fa fa-plus"></i></button>
 				<button type="button" class="btn btn-default"><i class="fa fa-floppy-o"></i></button>
@@ -286,7 +352,7 @@
 
 				</div> <!-- End of Lists -->
 
-				<div class="btn-group btn-group-sm">
+				<div class="btn-group btn-group-sm" data-toggle="buttons">
 					<!-- Text Allignment -->
 
 					<button value="justifyleft" type="button" class="btn btn-default"><i class="fa fa-align-left"></i></button>
@@ -296,11 +362,11 @@
 
 				</div> <!-- End of Text Allignment-->
 
-				<div class="btn-group btn-group-sm">
+				<div class="btn-group btn-group-sm" data-toggle="buttons">
 					<!-- Text Allignment -->
 
-					<button value="justifyleft" type="button" class="btn btn-default"><i class="fa fa-link"></i></button>
-					<button value="justifycenter" type="button" class="btn btn-default"><i class="fa fa-picture-o"></i></button>
+					<button value="createLink" type="button" class="btn btn-default" id="insert-link"><i class="fa fa-link"></i></button>
+					<button value="insertImage" type="button" class="btn btn-default" id="insert-picture"><i class="fa fa-picture-o"></i></button>
 
 				</div> <!-- End of Text Allignment-->
 
@@ -354,9 +420,15 @@
 	<!-- Bootstrap -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<!-- PNotify -->
+<<<<<<< HEAD
 	<script type="text/javascript" src="js/pnotify.custom.min.js"></script>
 	<!-- Login -->
 	<script src="js/login.js"></script>
+=======
+	<script type="text/javascript" src="js/libs/pnotify.custom.min.js"></script>
+	<!-- jsPDF -->
+	<script type="text/javascript" src="js/libs/jspdf.min.js"></script>
+>>>>>>> 7bf61cdf7572e7c8b00ef20f9eb52f9c3d868731
 	<!-- User credentials and data -->
 	<script src="js/userdata.js"></script>
 	<!-- Websocket management -->
