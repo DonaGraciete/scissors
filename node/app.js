@@ -89,7 +89,7 @@ wss.on('connection', function(ws) {
                     }
                     
                     //  Insert new file
-                    db.collection("files").insert({name:data.content.name, users:idArray, chat:[]},function(err,item){
+                    db.collection("files").insert({name:data.content.name, users:idArray, chat:[],using:null},function(err,item){
                         //  Remark: Only 1 file is created for sure, so
                         //          we can always call item[0]
                         console.log(item[0]._id);

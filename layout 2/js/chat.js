@@ -8,7 +8,7 @@ function indexOfId(array,id){
 	return -1;
 }
 
-$("#file-list").click(function(event){
+$("#file-list").delegate("li","click",function(event){
 
 	console.log(event.target.id+" clicked");
 
