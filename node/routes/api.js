@@ -5,6 +5,10 @@ router.post("/login",function(req,res){
     var username = req.body.username;
     var password = req.body.password;
 
+    console.log("login: ");
+    console.log("username - "+username);
+    console.log("password - "+password);
+
     var db = req.db;
        
     db.collection("users").findOne({username:username,password:password},function(err,result){

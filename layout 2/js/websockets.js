@@ -52,6 +52,12 @@ function sendChatStartMessage (id,length) {
 
 function webSocketConnect() {
 	ws = new WebSocket (url + username);
+	
+	//	Clean file list and chat
+	$("#file-list").empty();
+	$("#chat-messages").empty();
+	
+
 	ws.onopen = function (evt) {
 		webSocketOpenNotification();
 
