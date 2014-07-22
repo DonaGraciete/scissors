@@ -7,9 +7,9 @@ var options = {
 function formatText(cmd, val) {
     // Executes execCommand and passes focus back to the editor
 
-        editor.focus();
-        document.execCommand(cmd, false, val);
-        editor.focus();
+    editor.focus();
+    document.execCommand(cmd, false, val);
+    editor.focus();
 }
 
 function getCmd(str) {
@@ -29,6 +29,9 @@ function getCmd(str) {
 	}
 	else if ( str == "highlight-color" ) {
 		return "backcolor";
+	}
+	else if ( str == "paragraph") {
+		return "insertHTML";
 	}
 }
 
@@ -72,9 +75,19 @@ $(document).ready(function() {
 		$("#insert-picture-modal").modal(options);
 	});
 
+	editor.keydown(function(event){
+		//When user presses tab while writing it writes a paragraph
+		//instead of changing html element
+
+		if(event.keyCode == 9) {
+			event.preventDefault();
+			var cmd = getCmd("paragraph");
+			formatText(cmd, "&emsp;");
+		}
+	});
 });
 
-
+    
 
 
 
