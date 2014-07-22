@@ -59,12 +59,16 @@ function webSocketConnect() {
 			var data=JSON.parse(evt.data);
 			switch (data.type) {
 				case "file":
+
 					console.log("file recieved");
 					files.push(data.content);
 					$("#file-list").append("<li class='list-group-item' id="+data.content._id+">" + data.content.name + "</li>");
 					console.log($("#file-list li"));
+
 					break;
+
 				case "chat-start":
+
 					console.log("messages recieved from file "+fileChatInUse.name+": "+data.content.messagesToAdd.length);
 					var file;
 					for(var i=0;i<data.content.messagesToAdd;++i){
@@ -73,7 +77,9 @@ function webSocketConnect() {
 						$("#chat-messages").append("<div class='sent-messages well well-sm'><strong>"+messagesToAdd[i].username+"</strong><br/>" + messagesToAdd[i].message + "</div>");
 					}
 					break;
+
 				case "chat-message":
+
 					console.log("chat message recieved");
 
 					//se a mensagem recebida for do chat activo --> adicionar à cache e ao chat UI.
@@ -87,11 +93,14 @@ function webSocketConnect() {
 					}
 
 					break;
+
 				case "my-info":
+
 					//var userId = data.content.id; //INCOMPLETO
 					//console.log(user);
 					break;
 				case "user-login":
+				
 					alert("user "+data.content.username+" just logged in");
 				//var new_user = $("<li>").addClass("logged-users-" + data.content.fromId).append("User " + data.content.fromId);
 				//$("#user-list").append(new_user);
