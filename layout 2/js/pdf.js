@@ -1,5 +1,4 @@
 $("#new-pdf-button").click(function() {
-	alert($('#middle-editor-row').html());
 	generatePDF();
 });
 
