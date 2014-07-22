@@ -100,7 +100,7 @@ function webSocketConnect() {
 					//console.log(user);
 					break;
 				case "user-login":
-				
+
 					alert("user "+data.content.username+" just logged in");
 				//var new_user = $("<li>").addClass("logged-users-" + data.content.fromId).append("User " + data.content.fromId);
 				//$("#user-list").append(new_user);
@@ -135,4 +135,4 @@ function webSocketConnect() {
 };
 
 var ws;
-webSocketConnect();
+//webSocketConnect();

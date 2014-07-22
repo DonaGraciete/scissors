@@ -7,9 +7,14 @@ router.post("/login",function(req,res){
 
     var db = req.db;
        
-    db.authenticate(username,password,function(err,result){
+    db.collection("users").findOne({username:username,password:password},function(err,result){
         console.log("result: "+result);
-        res.json({result:result});
+        if(result){
+            res.json({result:true});
+        }
+        else{
+            res.json({result:false});
+        }
     });
 });
 
@@ -21,14 +26,15 @@ router.post("/register",function(req,res){
     
     var db = req.db;
     
-    db.collection("system.users").findOne({user:username},function(err,result){
-        if(!result){
-            db.addUser(username,password,function(err,result){
+    db.collection("users").findOne({username:username},function(err,result){
+        if(result){
+            res.json({result:false});
+        }
+        else{
+            db.collection("users").insert({username:username,password:password,files:[]},function(err,result){
                 res.json({result:true});
             });
-        } 
-        else
-            res.json({result:false});
+        }
     });
 });
 

@@ -1,4 +1,4 @@
-//Activate modal for file creation
+//	Activate modal for file creation
 $("#new-file-button").click(function(){
 	var options = {
 		"show": "true",
@@ -8,7 +8,7 @@ $("#new-file-button").click(function(){
 	$("#new-file-modal").modal(options);
 });
 
-//Create new file
+//	Create new file
 $("#create-new-file-button").click(function (event){
 	event.preventDefault();
 
@@ -16,10 +16,15 @@ $("#create-new-file-button").click(function (event){
 	var fileUsers = $("input[name=file-users]").val().split(" ");
 	fileUsers.push(username);
 
+	$("input[name=file-name]").val("");
+	$("input[name=file-users]").val("");
+
+	$("#new-file-modal").modal("hide");	
+
 	sendFileMessage(fileName, fileUsers);
 
 });
 
-//Select new file on file list
+//	Select new file on file list
 $(".list-group-item").click(function (event) {
 });
