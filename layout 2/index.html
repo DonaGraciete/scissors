@@ -53,15 +53,81 @@
 
 		</div>
 
-	</div> <!-- New File Modal -->
+	</div> <!-- End of New File Modal -->
+
+	<div class="modal fade" id="insert-link-modal">
+		<!-- Insert Link Modal -->
+
+		<div class="modal-dialog">
+
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title">Insert Link</h4>
+				</div>
+
+				<div class="modal-body">
+					<form id="form-project">
+						Displayed text:
+						<input type="text" class="form-control" id="displayed-text" placeholder="Text">
+						<br/>
+
+						URL:
+						<input type="text" class="form-control" id="link-url" placeholder="URL">
+					</form>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" id="create-link">Create</button>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div> <!-- End of Insert Link Modal -->
+
+	<div class="modal fade" id="insert-link-modal">
+		<!-- Insert Picture Modal -->
+
+		<div class="modal-dialog">
+
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title">Insert Picture</h4>
+				</div>
+
+				<div class="modal-body">
+					<form id="form-project">
+						Select from files:
+						<input type="text" class="form-control" name="file-name" placeholder="Path">
+						<br/>
+
+						Image URL:
+						<input type="text" class="form-control" name="file-users" placeholder="URL">
+					</form>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" id="create-link-button">Create</button>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div> <!-- End of Insert Picture Modal -->
 
 	<div class="col-xs-2 col-md-2" id="file-row" style="height:100%">
 		<!-- Left Side -->
 
-		<div class="top panel panel-default" id="top-main-row" style="border:1px solid black"> 
+		<div class="top panel panel-default" id="top-main-row"> 
 			<!-- Main Toolbar -->
 
-			<div class="btn-group btn-group-sm" id="btn-group-main-toolbar" style="border:1px solid blue">
+			<div class="btn-group btn-group-sm" id="btn-group-main-toolbar">
 
 				<button type="button" class="btn btn-default" id="new-file-button"><i class="fa fa-plus"></i></button>
 				<button type="button" class="btn btn-default" id="new-pdf-button"><i class="fa fa-floppy-o"></i></button>
@@ -235,7 +301,7 @@
 
 				</div> <!-- End of Lists -->
 
-				<div class="btn-group btn-group-sm">
+				<div class="btn-group btn-group-sm" data-toggle="buttons">
 					<!-- Text Allignment -->
 
 					<button value="justifyleft" type="button" class="btn btn-default"><i class="fa fa-align-left"></i></button>
@@ -245,7 +311,7 @@
 
 				</div> <!-- End of Text Allignment-->
 
-				<div class="btn-group btn-group-sm">
+				<div class="btn-group btn-group-sm" data-toggle="buttons">
 					<!-- Text Allignment -->
 
 					<button value="createLink" type="button" class="btn btn-default" id="insert-link"><i class="fa fa-link"></i></button>
