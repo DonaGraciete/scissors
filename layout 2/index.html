@@ -140,7 +140,7 @@
 
 	</div> <!-- End of Insert Link Modal -->
 
-	<div class="modal fade" id="insert-link-modal">
+	<div class="modal fade" id="insert-picture-modal">
 		<!-- Insert Picture Modal -->
 
 		<div class="modal-dialog">
@@ -154,17 +154,20 @@
 
 				<div class="modal-body">
 					<form id="form-picture">
-						Select from files:
-						<input type="text" class="form-control" name="picture-path" placeholder="Path">
+					
+						<label for="exampleInputFile">File input</label>
+						<input type="file" id="exampleInputFile">
+
 						<br/>
 
 						Image URL:
-						<input type="text" class="form-control" name="file-users" placeholder="URL">
+						<input type="text" class="form-control" name="picture-url" placeholder="URL">
+
 					</form>
 				</div>
 
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" id="create-link-button">Create</button>
+					<button type="button" class="btn btn-primary" id="create-picture">Create</button>
 				</div>
 
 			</div>
@@ -181,7 +184,7 @@
 
 			<div class="btn-group btn-group-sm" id="btn-group-main-toolbar">
 
-				<button type="button" class="btn btn-default" id="new-file-button"><i class="fa fa-plus"></i></button>
+				<button type="button" class="btn btn-default" id="new-file-button" data-toggle="modal"><i class="fa fa-plus"></i></button>
 				<button type="button" class="btn btn-default" id="new-pdf-button"><i class="fa fa-floppy-o"></i></button>
 				<button type="button" class="btn btn-default"><i class="fa fa-print"></i></button>
 				<button type="button" class="btn btn-default"><i class="fa fa-envelope-o"></i></button>
@@ -353,7 +356,7 @@
 
 				</div> <!-- End of Lists -->
 
-				<div class="btn-group btn-group-sm" data-toggle="buttons">
+				<div class="btn-group btn-group-sm">
 					<!-- Text Allignment -->
 
 					<button value="justifyleft" type="button" class="btn btn-default"><i class="fa fa-align-left"></i></button>
@@ -363,7 +366,7 @@
 
 				</div> <!-- End of Text Allignment-->
 
-				<div class="btn-group btn-group-sm" data-toggle="buttons">
+				<div class="btn-group btn-group-sm">
 					<!-- Insert Link/Picture -->
 
 					<button value="createLink" type="button" class="btn btn-default" id="insert-link"><i class="fa fa-link"></i></button>
