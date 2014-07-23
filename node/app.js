@@ -203,15 +203,17 @@ wss.on('connection', function(ws) {
     ws.on('close', function () {
         console.log("user "+userId+" just left");
 
-        db.collection("files").findOne({using:username},function(err,result){
-            for(var i=0;i<result.users.length;++i){
-                if(result.users[i] in openSockets){
-                    openSockets[result.users[i]].send(JSON.stringify({
-                        type: "file-dismiss",
-                        content:{
-                            id: result._id
-                        }
-                    }));
+        db.collection("files").findAndModify({using:username},[],{$set:{using:""}},function(err,result){
+            if(result){
+                for(var i=0;i<result.users.length;++i){
+                    if(result.users[i] in openSockets){
+                        openSockets[result.users[i]].send(JSON.stringify({
+                            type: "file-dismiss",
+                            content:{
+                                id: result._id
+                            }
+                        }));
+                    }
                 }
             }
         });
