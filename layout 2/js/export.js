@@ -1,4 +1,4 @@
-var wkhtmltopdf = require('wkhtmltopdf');
+//var wkhtmltopdf = require('wkhtmltopdf');
 
 //	Activate modal for file creation
 $("#export-file-button").click(function(){
@@ -36,5 +36,5 @@ function generatePDF(content, filename) {
 };
 
 function generateHTML(content, filename) {
-
+	alert("HTML is not currently supported :(")
 };

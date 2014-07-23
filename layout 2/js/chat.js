@@ -58,7 +58,7 @@ $("#file-list").delegate("li","click",function(event){
 
 	//	Add existing messages
 	for(var i=0;i<file.chat.length;++i){
-		$("#chat-messages").append("<div class='sent-messages well well-sm'><strong>"+file.chat[i].username+"</strong><br/>" + file.chat[i].message + "</div>");
+		$("#chat-messages").append("<div class='sent-messages'><strong>"+file.chat[i].username+"</strong><br/>" + file.chat[i].message + "</div>");
 		console.log("added existing message to chat");
 	}
 
