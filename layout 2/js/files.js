@@ -21,7 +21,7 @@ $("#create-new-file-button").click(function (event){
 
 	$("#new-file-modal").modal("hide");	
 
-	sendFileMessage(fileName, fileUsers);
+	sendFileMessage(fileName, fileUsers, username);
 
 });
 

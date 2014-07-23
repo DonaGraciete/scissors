@@ -49,7 +49,8 @@ wss.on('connection', function(ws) {
                 
                 ws.send(JSON.stringify({
                     type: "file",
-                    content: file
+                    content: file,
+                    creator: ""
                 }));
 
                 console.log("file sent to user "+username);
@@ -76,7 +77,7 @@ wss.on('connection', function(ws) {
             case "new-file":
 
                 console.log("\nNEW-FILE:");
-
+                console.log("creator: "+data.creator);
                 //  Find users to invite to file
                 db.collection("users").find({username:{$in:data.content.users}}).toArray(function(err,results){
                     console.log(results);
@@ -104,7 +105,8 @@ wss.on('connection', function(ws) {
                             if(openSockets[idArray[i]]){
                                 openSockets[idArray[i]].send(JSON.stringify({
                                     type: "file",
-                                    content: item[0]
+                                    content: item[0],
+                                    creator: data.creator
                                 }));
                             }
                         }
