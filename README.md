@@ -1,4 +1,4 @@
-scissos (jaques é tão, mas tão gay)
+Scissors
 ========
 
 LX Reactor 2014

@@ -47,3 +47,23 @@ function webSocketClosedNotification () {
 		});
 	});
 };
+
+function savedFileNotification () {
+	$(function(){
+		var notice = new PNotify({
+			title: 'Success!',
+			text: 'File saved',
+			type: 'success',
+			buttons: {
+				sticker: false
+			},
+			mouse_reset: false
+		});
+
+		notice.get().click(function() {
+			notice.remove();
+		});
+	});
+
+};
+
