@@ -59,6 +59,10 @@ $(document).ready(function() {
 		if( $("#insert-link").hasClass("active") ) {
 
 			if( window.getSelection() ) {
+				// colocar o texto seleccionado no primeiro input do modal
+
+				$("#link-displayed-text").value = window.getSelection().toString();
+
 				$("#insert-link-modal").modal(options);
 			}
 			else { //create a link - modal
