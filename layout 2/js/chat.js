@@ -18,6 +18,12 @@ $("#file-list").delegate("li","click",function(event){
 	var file = files[index];
 	console.log("file's chat: "+file.chat);
 
+	$.each($("#file-list li"), function (key, value) {
+		$(this).removeClass('active');
+	});
+
+	$(this).addClass('active');
+
 	//	Check if user is clicking on his active file
 	if(file.using == username){
 		return;
@@ -61,12 +67,6 @@ $("#file-list").delegate("li","click",function(event){
 		$("#chat-messages").append("<div class='sent-messages'><strong>"+file.chat[i].username+"</strong><br/>" + file.chat[i].message + "</div>");
 		console.log("added existing message to chat");
 	}
-
-	$.each($("#file-list li"), function (key, value) {
-		$(this).removeClass('active');
-	});
-
-	$(this).addClass('active');
 
 	var length = file.chat.length;
 	console.log("file's length: "+length);
