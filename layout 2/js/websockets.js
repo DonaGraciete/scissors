@@ -50,6 +50,24 @@ function sendChatStartMessage (id,length) {
 	}));
 }
 
+function sendUsingFileMessage(id){
+	ws.send(JSON.stringify({
+		type:"file-using",
+		content:{
+			id: id
+		}
+	}));
+}
+
+function sendDismissFileMessage(id){
+	ws.send(JSON.stringify({
+		type:"file-dismiss",
+		content:{
+			id: id
+		}
+	}));
+}
+
 function webSocketConnect() {
 	ws = new WebSocket (url + username);
 	
@@ -68,7 +86,10 @@ function webSocketConnect() {
 
 					console.log("file recieved");
 					files.push(data.content);
-					$("#file-list").append("<li class='list-group-item' id="+data.content._id+">" + data.content.name + "</li>");
+
+					$("#file-list").append("<li class='list-group-item' id="+data.content._id+">" + data.content.name + 
+						"<span class='label label-default pull-right'>"+data.content.using+"</span>" +
+						"</li>");
 					console.log($("#file-list li"));
 
 					break;
@@ -97,6 +118,33 @@ function webSocketConnect() {
 					if(recievedFileChatIndex == fileChatInUse.index){
 						$("#chat-messages").append("<div class='sent-messages well well-sm'><strong>"+data.content.chat.username+"</strong><br/>" + data.content.chat.message + "</div>");
 					}
+
+					break;
+
+				case "file-using":
+
+					console.log("file using message received");
+
+					recievedFileUsingIndex = indexOfId(files,data.content.id);
+					files[recievedFileUsingIndex].using = data.content.username;
+
+					if(data.content.username == username){
+						$("#"+data.content.id).append("<span class='label label-success pull-right'>"+data.content.username+"</span>");
+					}
+					else{
+						$("#"+data.content.id).append("<span class='label label-default pull-right'>"+data.content.username+"</span>");
+					}
+
+					break;
+
+				case "file-dismiss":
+
+					console.log("file dismiss message received");
+
+					recievedFileDismissIndex = indexOfId(files,data.content.id);
+					files[recievedFileDismissIndex].using = "";
+
+					$("#"+data.content.id+" span").remove();
 
 					break;
 

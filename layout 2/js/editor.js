@@ -30,7 +30,7 @@ function getCmd(str) {
 	else if ( str == "highlight-color" ) {
 		return "backcolor";
 	}
-	else if ( str == "paragraph") {
+	else if ( str == "tab") {
 		return "insertHTML";
 	}
 }
@@ -59,6 +59,10 @@ $(document).ready(function() {
 		if( $("#insert-link").hasClass("active") ) {
 
 			if( window.getSelection() ) {
+				// colocar o texto seleccionado no primeiro input do modal
+
+				$("#link-displayed-text").value = window.getSelection().toString();
+
 				$("#insert-link-modal").modal(options);
 			}
 			else { //create a link - modal
@@ -81,7 +85,7 @@ $(document).ready(function() {
 
 		if(event.keyCode == 9) {
 			event.preventDefault();
-			var cmd = getCmd("paragraph");
+			var cmd = getCmd("tab");
 			formatText(cmd, "&emsp;");
 		}
 	});

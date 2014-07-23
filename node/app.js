@@ -121,28 +121,18 @@ wss.on('connection', function(ws) {
                     //console.log(file);
                     console.log("client's chat length: "+data.content.length);
                     console.log("server's chat length: "+file.chat.length);
-                    var messagesDiff = -(file.chat.length - data.content.length);
+                    
+                    //  Diference between db and client data regarding the file
+                    var messagesDiff = file.chat.length - data.content.length;
 
                     //caso o chat do ficheiro esteja up-to-date
-                    if(messagesDiff == 0){
-                        ws.send(JSON.stringify({
-                            type: "chat-start",
-                            content: {
-                                //id: data.content.id,
-                                messagesToAdd:[]
-                            }
-                        }));
-                    }         
-                    //caso o chat do ficheiro não esteja up-to-date      
-                    else{
-                        ws.send(JSON.stringify({
-                            type: "chat-start",
-                            content: {
-                                //id: data.content.id,
-                                messagesToAdd:file.chat.slice(messagesDiff)
-                            }
-                        }));
-                    }    
+                    ws.send(JSON.stringify({
+                        type: "chat-start",
+                        content: {
+                            //id: data.content.id,
+                            messagesToAdd:file.chat.slice(file.chat.length-messagesDiff)
+                        }
+                    }));    
                 });
                 break;
 
@@ -168,12 +158,64 @@ wss.on('connection', function(ws) {
 
                 });
                 break;
+            case "file-using":
+
+                console.log("\nUSER "+username+" is now using file "+data.content.id);
+
+                db.collection("files").findAndModify({_id:new ObjectId(data.content.id)},[],{$set:{using:username}},{new:true},function(err,result){
+                    for(var i=0;i<result.users.length;++i){
+                        if(result.users[i] in openSockets){
+                            openSockets[result.users[i]].send(JSON.stringify({
+                                type: "file-using",
+                                content:{
+                                    id: result._id,
+                                    username: username
+                                }
+                            }));
+                        }
+                    }
+                });
+
+                break;
+
+            case "file-dismiss":
+
+                console.log("\nUSER "+username+" left file "+data.content.id);
+
+                db.collection("files").findAndModify({_id:new ObjectId(data.content.id)},[],{$set:{using:""}},{new:true},function(err,result){
+                    for(var i=0;i<result.users.length;++i){
+                        if(result.users[i] in openSockets){
+                            openSockets[result.users[i]].send(JSON.stringify({
+                                type: "file-dismiss",
+                                content:{
+                                    id: result._id
+                                }
+                            }));
+                        }
+                    }
+                });
+
+                break;            
         }
         
     });
 
     ws.on('close', function () {
         console.log("user "+userId+" just left");
+
+        db.collection("files").findOne({using:username},function(err,result){
+            for(var i=0;i<result.users.length;++i){
+                if(result.users[i] in openSockets){
+                    openSockets[result.users[i]].send(JSON.stringify({
+                        type: "file-dismiss",
+                        content:{
+                            id: result._id
+                        }
+                    }));
+                }
+            }
+        });
+
         delete openSockets[userId];
     });
 });
