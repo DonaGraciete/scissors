@@ -121,28 +121,18 @@ wss.on('connection', function(ws) {
                     //console.log(file);
                     console.log("client's chat length: "+data.content.length);
                     console.log("server's chat length: "+file.chat.length);
-                    var messagesDiff = -(file.chat.length - data.content.length);
+                    
+                    //  Diference between db and client data regarding the file
+                    var messagesDiff = file.chat.length - data.content.length;
 
                     //caso o chat do ficheiro esteja up-to-date
-                    if(messagesDiff == 0){
-                        ws.send(JSON.stringify({
-                            type: "chat-start",
-                            content: {
-                                //id: data.content.id,
-                                messagesToAdd:[]
-                            }
-                        }));
-                    }         
-                    //caso o chat do ficheiro não esteja up-to-date      
-                    else{
-                        ws.send(JSON.stringify({
-                            type: "chat-start",
-                            content: {
-                                //id: data.content.id,
-                                messagesToAdd:file.chat.slice(messagesDiff)
-                            }
-                        }));
-                    }    
+                    ws.send(JSON.stringify({
+                        type: "chat-start",
+                        content: {
+                            //id: data.content.id,
+                            messagesToAdd:file.chat.slice(file.chat.length-messagesDiff)
+                        }
+                    }));    
                 });
                 break;
 
