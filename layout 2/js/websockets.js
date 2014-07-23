@@ -16,13 +16,14 @@ function sendLogOutMessage () {
 	}));
 };
 
-function sendFileMessage (fileName, fileUsers) {
+function sendFileMessage (fileName, fileUsers, creator) {
 	ws.send(JSON.stringify({
 		type:"new-file",
 		content: {
 			name: fileName,
 			users: fileUsers
-		}
+		},
+		creator: creator
 	}));
 };
 
@@ -87,10 +88,14 @@ function webSocketConnect() {
 					console.log("file recieved");
 					files.push(data.content);
 
-					$("#file-list").append("<li class='list-group-item' id="+data.content._id+">" + data.content.name + 
-						"<span class='label label-default pull-right'>"+data.content.using+"</span>" +
-						"</li>");
+					$("#file-list").append("<li class='list-group-item' id="+data.content._id+">" + data.content.name +"</li>");
 					console.log($("#file-list li"));
+
+					if(data.creator == username){
+						console.log("i created this file");
+						var e = $.Event("click");
+						$("#"+data.content._id).trigger(e);
+					}
 
 					break;
 

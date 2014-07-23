@@ -33,8 +33,43 @@ function getCmd(str) {
 	else if ( str == "tab") {
 		return "insertHTML";
 	}
+	else if ( str == "link" ) {
+		return "createLink";
+	}
+	else if ( str == "image" ) {
+		return "insertImage";
+	}
 }
 
+function saveSelection() {
+	if (window.getSelection) {
+		sel = window.getSelection();
+		if (sel.getRangeAt && sel.rangeCount) {
+			var ranges = [];
+			for (var i = 0, len = sel.rangeCount; i < len; ++i) {
+				ranges.push(sel.getRangeAt(i));
+			}
+			return ranges;
+		}
+	} else if (document.selection && document.selection.createRange) {
+		return document.selection.createRange();
+	}
+	return null;
+}
+
+function restoreSelection(savedSel) {
+	if (savedSel) {
+		if (window.getSelection) {
+			sel = window.getSelection();
+			sel.removeAllRanges();
+			for (var i = 0, len = savedSel.length; i < len; ++i) {
+				sel.addRange(savedSel[i]);
+			}
+		} else if (document.selection && savedSel.select) {
+			savedSel.select();
+		}
+	}
+}
 
 $(document).ready(function() {
 
@@ -56,16 +91,24 @@ $(document).ready(function() {
 
 		$("#insert-link").toggleClass("active");
 
-		if( $("#insert-link").hasClass("active") ) {
+		if ( $("#insert-link").hasClass("active") ) {
+			var cmd = getCmd("link");
 
-			if( window.getSelection() ) {
-				// colocar o texto seleccionado no primeiro input do modal
+			if ( document.getSelection() ) {
+				var savedSel = saveSelection();
 
-				$("#link-displayed-text").value = window.getSelection().toString();
+				$("#link-displayed-text").val( savedSel );
+				$("#insert-link-modal").modal( options );
 
-				$("#insert-link-modal").modal(options);
+				$("#create-link").click(function() {
+					var url = $("#link-url").val();
+					restoreSelection( savedSel );
+					formatText(cmd, url);
+					$("#insert-link-modal").modal("hide");
+				});
 			}
 			else { //create a link - modal
+
 
 			}
 
@@ -79,16 +122,33 @@ $(document).ready(function() {
 		$("#insert-picture-modal").modal(options);
 	});
 
-	editor.keydown(function(event){
+	editor.keydown(function(event) {
 		//When user presses tab while writing it writes a paragraph
 		//instead of changing html element
 
-		if(event.keyCode == 9) {
+		// tab
+		if (event.keyCode == 9) {
 			event.preventDefault();
 			var cmd = getCmd("tab");
 			formatText(cmd, "&emsp;");
 		}
 	});
+
+	var editor = document.getElementById('middle-editor-row');
+
+	document.addEventListener('keydown', function(event) {
+	    if (event.keyCode === 17) {          // when ctrl is pressed
+	        content.contentEditable = false; // disable contentEditable
+	    }
+	}, false);
+
+	document.addEventListener('keyup', function(event) {
+	    if (event.keyCode === 17) {          // when ctrl is released
+	        content.contentEditable = true;  // reenable contentEditable
+	    }
+	}, false);
+	
+
 });
 
     
