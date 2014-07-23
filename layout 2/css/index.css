@@ -29,7 +29,6 @@ html, body {
 
 #top-main-row {
 	display: table;
-	text-align: center;
 }
 
 #btn-group-main-toolbar {
@@ -173,9 +172,7 @@ html, body {
 	max-height: 60%;
 }
 
-
 .modal-padding {
 	margin-top: 30px;
 	margin-bottom: 85px;
 }
-
