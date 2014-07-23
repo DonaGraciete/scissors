@@ -32,25 +32,39 @@
 				<div class="modal-padding">
 					<center>
 						<div class="login-form">
+							
+							<h2 class="form-signin-heading">Please sign in</h2>
+							
+							<div class="alert alert-warning alert-dismissible" role="alert" id="login-error">
+								<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								<span id="login-error-message"></span>
+							</div>
+
 							<form id="form-signin">
-								<h2 class="form-signin-heading">Please sign in</h2>
+
 								<input type="username" class="form-control" name="username-signin" placeholder="Username" required autofocus>
 								<input type="password" class="form-control" name="password-signin" placeholder="Password" required>
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" value="remember-me"> Remember me
-									</label>
-								</div>
+								<br/>
+
 								<button type="submit" class="btn btn-lg btn-primary btn-block" id="sign-in">Sign in</button>
 								<div id='alternatives'><a id='forgot-password' class="pull-left">Forgot password?</a><a id='create-account' class="pull-right">Create account</a></div>
 							</form>
+
 						</div>
 					</center>
 
 					<center>
+						
 						<div class='register-form hidden'>
+
+							<h2 class="form-signin-heading">Create account</h2>
+
+							<div class="alert alert-warning alert-dismissible" role="alert" id="register-error">
+								<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								<span id="register-error-message"></span>
+							</div>
+
 							<form id="form-signup">
-								<h2 class="form-signin-heading">Create account</h2>
 								<input type="username" name='username-signup' class="form-control" placeholder="Username" required autofocus>
 								<input type="password" name='password-signup' class="form-control" placeholder="Password" required>
 								<input type="password" name="password-confirm" class="form-control" placeholder="Confirm password" required>
@@ -58,14 +72,13 @@
 								<button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
 								<div id='alternatives'><a id='switch-to-sign-in'>Sign in</a></div>
 							</form>
+
 						</div>
+
 					</center>
 
-					<center>
-						<div id="error-message">
-						</div>
-					</center>
 				</div>
+				
 			</div>
 
 		</div>
@@ -154,7 +167,7 @@
 
 				<div class="modal-body">
 					<form id="form-picture">
-					
+
 						<label for="exampleInputFile">File input</label>
 						<input type="file" id="exampleInputFile">
 
@@ -196,7 +209,7 @@
 		<div class="middle file row panel panel-success" id="middle-file-row">
 			<!-- File Manager -->
 
-			<div class="panel-heading"><h4><b>My files</b></h4></div>
+			<div class="panel-heading"><h5><b>My files</b></h5></div>
 
 			<ul class="list-group scrollable" id="file-list">
 			</ul>

@@ -1,6 +1,10 @@
+//Por defeito, os erros sao escondidos
+$("#login-error").hide();
+$("#register-error").hide();
+
 var options = {
 	"show": "true",
-	"backdrop" : "false"
+	"backdrop" : "false"  //colocar a "static" quando for para nao se poder fechar
 };
 
 $("#login-modal").modal(options);
@@ -8,13 +12,11 @@ $("#login-modal").modal(options);
 $("#create-account").click(function (event) {
 	$(".login-form").addClass('hidden');
 	$(".register-form").removeClass('hidden');
-	$("#error-message").text("");
 });
 
 $("#switch-to-sign-in").click(function (event) {
 	$(".register-form").addClass('hidden');
 	$(".login-form").removeClass('hidden');
-	$("#error-message").text("");
 });
 
 $("#form-signin").submit(function(event){
@@ -47,7 +49,14 @@ $("#form-signin").submit(function(event){
 			}
 		},
 		error: function(xhr, tetStatus, errorThrown){
-			$("#error-message").text("Sorry, an error happened: "+xhr.responseText);
+			if (xhr.responseText == '') {
+				$("#login-error-message").html("<strong>Sorry, an error happened.</strong> Check your internet connection.");
+				$("#login-error").show();
+			}
+			else {
+				$("#register-error-message").text("<strong>Sorry, an error happened.</strong>, an error happened: "+ xhr.responseText);
+				$("#register-error").show();
+			};
 		}
 	});
 
@@ -61,7 +70,8 @@ $("#form-signup").submit(function(event){
 	var loginConfirm = $("input[name=password-confirm]").val();
 
 	if(loginPassword != loginConfirm){
-		$("#error-message").text("Passwords don't match");
+		$("#register-error-message").html("<strong>Error:</strong> Passwords don't match.");
+		$("#register-error").show();
 		return;
 	}
 
@@ -85,11 +95,20 @@ $("#form-signup").submit(function(event){
 			}
 			else{
 				console.log("informacao errada");
-				$("#error-message").text("Username already taken");
+				$("#register-error-message").text("Username already taken");
+				$("#register-error").show();
 			}
 		},
 		error: function(xhr, tetStatus, errorThrown){
-			$("#error-message").text("Sorry, an error happened: "+xhr.responseText);
+			alert("entrei")
+			if (xhr.responseText == '') {
+				$("#register-error-message").html("<strong>Sorry, an error happened.</strong> Check your internet connection.");
+				$("#register-error").show();
+			}
+			else {
+				$("#register-error-message").text("<strong>Sorry, an error happened.</strong>, an error happened: "+ xhr.responseText);
+				$("#register-error").show();
+			};
 		}
 	});
 
