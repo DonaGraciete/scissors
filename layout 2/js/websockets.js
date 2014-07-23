@@ -88,7 +88,15 @@ function webSocketConnect() {
 					console.log("file recieved");
 					files.push(data.content);
 
-					$("#file-list").append("<li class='list-group-item' id="+data.content._id+">" + data.content.name +"</li>");
+					if(data.content.using){
+						$("#file-list").append("<li class='list-group-item' id="+data.content._id+">" + data.content.name +
+							"<span class='label label-success pull-right'>"+data.content.using+"</span>"+
+							"</li>");
+					}
+					else
+						$("#file-list").append("<li class='list-group-item' id="+data.content._id+">" + data.content.name +"</li>");
+
+
 					console.log($("#file-list li"));
 
 					if(data.creator == username){
