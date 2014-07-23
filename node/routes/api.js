@@ -13,7 +13,7 @@ router.post("/login",function(req,res){
        
     db.collection("users").findOne({username:username,password:password},function(err,result){
         console.log("result: "+result);
-        if(result){
+        if(result!=null){
             res.json({result:true});
         }
         else{

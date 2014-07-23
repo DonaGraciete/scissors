@@ -45,7 +45,8 @@ $("#form-signin").submit(function(event){
 			}
 			else{
 				console.log("informacao errada");
-				$("#error-message").text("User credentials incorrect");
+				$("#login-error-message").text("User credentials incorrect");
+				$("#login-error").show();
 			}
 		},
 		error: function(xhr, tetStatus, errorThrown){
