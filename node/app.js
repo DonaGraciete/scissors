@@ -24,6 +24,8 @@ var wss = new WebSocketServer({server:server});
 */
 var openSockets = {};
 
+module.exports = openSockets;
+
 //  Websocket connection and logic
 wss.on('connection', function(ws) {
 
@@ -77,7 +79,7 @@ wss.on('connection', function(ws) {
             case "new-file":
 
                 console.log("\nNEW-FILE:");
-                console.log("creator: "+data.creator);
+                console.log("creator: "+data.creator);  
                 //  Find users to invite to file
                 db.collection("users").find({username:{$in:data.content.users}}).toArray(function(err,results){
                     console.log(results);

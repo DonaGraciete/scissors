@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+var openSockets = require("../app");
+
 router.post("/login",function(req,res){
     var username = req.body.username;
     var password = req.body.password;
@@ -13,8 +15,13 @@ router.post("/login",function(req,res){
        
     db.collection("users").findOne({username:username,password:password},function(err,result){
         console.log("result: "+result);
-        if(result!=null){
-            res.json({result:true});
+        if(result){
+            if(result._id in openSockets){
+                res.json({result:false});
+            }
+            else{
+                res.json({result:true});
+            }
         }
         else{
             res.json({result:false});

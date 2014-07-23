@@ -90,7 +90,7 @@ function webSocketConnect() {
 
 					if(data.content.using){
 						$("#file-list").append("<li class='list-group-item' id="+data.content._id+">" + data.content.name +
-							"<span class='label label-success pull-right'>"+data.content.using+"</span>"+
+							"<span class='label label-default pull-right'>"+data.content.using+"</span>"+
 							"</li>");
 					}
 					else
