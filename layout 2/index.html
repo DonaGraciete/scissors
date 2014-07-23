@@ -189,6 +189,41 @@
 
 	</div> <!-- End of Insert Picture Modal -->
 
+	<div class="modal fade" id="export-file-modal">
+		<!-- Export file Modal -->
+
+		<div class="modal-dialog">
+
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title">Export file</h4>
+				</div>
+
+				<div class="modal-body">
+					<form id="form-export">
+						File name:<br/>
+						<input type="text" class="form-control" name="filename" placeholder="File name" required autofocus>
+						
+						<br/>
+
+						Format: <br/>
+						<input type="radio" name="format" value="pdf" checked>PDF<br>
+						<input type="radio" name="format" value="html">HTML
+
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-primary" id="export-submit">Save</button>
+						</div>
+					</form>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div> <!-- End of Insert Picture Modal -->
+
 	<div class="col-xs-2 col-md-2" id="file-row" style="height:100%">
 		<!-- Left Side -->
 
@@ -198,7 +233,7 @@
 			<div class="btn-group btn-group-sm" id="btn-group-main-toolbar">
 
 				<button type="button" class="btn btn-default" id="new-file-button" data-toggle="modal"><i class="fa fa-plus"></i></button>
-				<button type="button" class="btn btn-default" id="new-pdf-button"><i class="fa fa-floppy-o"></i></button>
+				<button type="button" class="btn btn-default" id="export-file-button" data-toggle="modal"><i class="fa fa-floppy-o"></i></button>
 				<button type="button" class="btn btn-default"><i class="fa fa-print"></i></button>
 				<button type="button" class="btn btn-default"><i class="fa fa-envelope-o"></i></button>
 
@@ -469,8 +504,8 @@
 	<script src="js/notifications.js"></script>
 	<!-- Widget -->
 	<script src="js/widget.js"></script>
-	<!-- PDF creation -->
-	<script src="js/pdf.js"></script>
+	<!-- File export -->
+	<script src="js/export.js"></script>
 
 
 </body>
