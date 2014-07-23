@@ -30,7 +30,7 @@ function getCmd(str) {
 	else if ( str == "highlight-color" ) {
 		return "backcolor";
 	}
-	else if ( str == "paragraph") {
+	else if ( str == "tab") {
 		return "insertHTML";
 	}
 }
@@ -81,7 +81,7 @@ $(document).ready(function() {
 
 		if(event.keyCode == 9) {
 			event.preventDefault();
-			var cmd = getCmd("paragraph");
+			var cmd = getCmd("tab");
 			formatText(cmd, "&emsp;");
 		}
 	});
