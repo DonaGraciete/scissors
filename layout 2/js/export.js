@@ -36,5 +36,5 @@ function generatePDF(content, filename) {
 };
 
 function generateHTML(content, filename) {
-
+	alert("HTML is not currently supported :(")
 };
