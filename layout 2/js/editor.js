@@ -126,7 +126,6 @@ $(document).ready(function() {
 		//When user presses tab while writing it writes a paragraph
 		//instead of changing html element
 
-		// tab
 		if (event.keyCode == 9) {
 			event.preventDefault();
 			var cmd = getCmd("tab");
@@ -134,68 +133,12 @@ $(document).ready(function() {
 		}
 	});
 
-	var editor = document.getElementById('middle-editor-row');
 
-	document.addEventListener('keydown', function(event) {
-	    if (event.keyCode === 17) {          // when ctrl is pressed
-	        content.contentEditable = false; // disable contentEditable
-	    }
-	}, false);
-
-	document.addEventListener('keyup', function(event) {
-	    if (event.keyCode === 17) {          // when ctrl is released
-	        content.contentEditable = true;  // reenable contentEditable
-	    }
-	}, false);
 	
 
 });
 
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -28,13 +28,13 @@ html, body {
 }
 
 #top-main-row {
-	width: 100%;
 	display: table;
 	text-align: center;
-	
 }
 
 #btn-group-main-toolbar {
+	width: 100%;
+	
 	display: table-cell;
     vertical-align: middle;
 }
