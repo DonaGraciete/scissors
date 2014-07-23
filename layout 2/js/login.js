@@ -95,7 +95,7 @@ $("#form-signup").submit(function(event){
 			}
 			else{
 				console.log("informacao errada");
-				$("#register-error-message").text("Username already taken");
+				$("#register-error-message").text("<strong>Error:</strong> Username already taken");
 				$("#register-error").show();
 			}
 		},
