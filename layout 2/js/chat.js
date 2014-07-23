@@ -18,7 +18,37 @@ $("#file-list").delegate("li","click",function(event){
 	var file = files[index];
 	console.log("file's chat: "+file.chat);
 
-	//	Define current file's cache
+	//	Check if user is clicking on his active file
+	if(file.using == username){
+		return;
+	}
+
+	//	SECCÇÃO ABAIXO PODE SER MELHORADA, MAS FAZ-SE DEPOIS xD
+	//------------------------------------------
+
+	//	Check if user was editing a different file
+	for(var i=0;i<files.length;++i){
+		
+		//	If so, send message to all users to remove previous active file
+		if(files[i].using == username){
+			sendDismissFileMessage(files[i]._id);
+		}
+	}
+
+	//-----------------------------------------
+
+	//	Check for file already in use
+	console.log("file usage: "+file.using);
+	if(!file.using){
+		sendUsingFileMessage(event.target.id);
+		//debug this part
+		$("#middle-editor-row").attr("contenteditable","true");
+	}
+	else{
+		$("#middle-editor-row").attr("contenteditable","false");
+	}
+
+	//	Set/change current file's cache
 	fileChatInUse.index = index;
 	fileChatInUse.name = file.name;
 	fileChatInUse.id = file._id;
@@ -32,11 +62,13 @@ $("#file-list").delegate("li","click",function(event){
 		console.log("added existing message to chat");
 	}
 
-	//	Get newest messages
+
 	var length = file.chat.length;
 	console.log("file's length: "+length);
 
+	//	Get newest messages
 	sendChatStartMessage(event.target.id,length);
+
 });
 
 $("#chat-input-text").keypress(function(event) {
