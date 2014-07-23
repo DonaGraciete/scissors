@@ -62,6 +62,11 @@ $("#file-list").delegate("li","click",function(event){
 		console.log("added existing message to chat");
 	}
 
+	$.each($("#file-list li"), function (key, value) {
+		$(this).removeClass('active');
+	});
+
+	$(this).addClass('active');
 
 	var length = file.chat.length;
 	console.log("file's length: "+length);

@@ -1,4 +1,4 @@
-//var wkhtmltopdf = require('wkhtmltopdf');
+var wkhtmltopdf = require('wkhtmltopdf');
 
 //	Activate modal for file creation
 $("#export-file-button").click(function(){

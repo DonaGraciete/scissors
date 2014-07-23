@@ -27,4 +27,10 @@ $("#create-new-file-button").click(function (event){
 
 //	Select new file on file list
 $(".list-group-item").click(function (event) {
+	alert("yayay");
+	$.each(".list-group-item", function (key, value) {
+		$(this).removeClass('active');
+	});
+
+	$this.addClass('active');
 });
