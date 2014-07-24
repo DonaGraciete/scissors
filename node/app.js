@@ -116,30 +116,6 @@ wss.on('connection', function(ws) {
                 });
                 break;
 
-            case "chat-start":
-
-                console.log("\nUSER "+username+" just entered chat "+data.content.id);
-
-
-                db.collection("files").findOne({_id:new ObjectId(data.content.id)},function(err,file){
-                    //console.log(file);
-                    console.log("client's chat length: "+data.content.length);
-                    console.log("server's chat length: "+file.chat.length);
-                    
-                    //  Diference between db and client data regarding the file
-                    var messagesDiff = file.chat.length - data.content.length;
-
-                    //caso o chat do ficheiro esteja up-to-date
-                    ws.send(JSON.stringify({
-                        type: "chat-start",
-                        content: {
-                            //id: data.content.id,
-                            messagesToAdd:file.chat.slice(file.chat.length-messagesDiff)
-                        }
-                    }));    
-                });
-                break;
-
             case "chat-message":
                 
                 console.log("\nUSER "+username+" just typed a new message to chat "+data.content.id)
@@ -212,7 +188,7 @@ wss.on('connection', function(ws) {
                                 type: "file-text",
                                 content:{
                                     id: result._id,
-                                    text: data.content.text;
+                                    text: data.content.text
                                 }
                             }));
                         }

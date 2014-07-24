@@ -121,17 +121,6 @@ function webSocketConnect() {
 
 					break;
 
-				case "chat-start":
-
-					console.log("messages recieved from file "+fileChatInUse.name+": "+data.content.messagesToAdd.length);
-					var file;
-					for(var i=0;i<data.content.messagesToAdd;++i){
-						file=files[fileChatInUse.index];
-						file.chat.push(data.content.messagesToAdd[i]);
-						$("#chat-messages").append("<div class='sent-messages well well-sm'><strong>"+messagesToAdd[i].username+"</strong><br/>" + messagesToAdd[i].message + "</div>");
-					}
-					break;
-
 				case "chat-message":
 
 					console.log("chat message recieved");

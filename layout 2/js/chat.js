@@ -74,10 +74,6 @@ $("#file-list").delegate("li","click",function(event){
 
 	var length = file.chat.length;
 	console.log("file's length: "+length);
-
-	//	Get newest messages
-	sendChatStartMessage(event.target.id,length);
-
 });
 
 $("#chat-input-text").keypress(function(event) {
