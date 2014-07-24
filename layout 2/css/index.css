@@ -20,7 +20,7 @@ html, body {
 
 .bottom {
 	background-color: #FFFFFF;
-	height:25%;
+	height:30%;
 	padding:1px;
 }
 
@@ -31,12 +31,10 @@ html, body {
 #top-main-row {
 	display: table;
 	box-shadow:0 4px 2px 0 rgba(0, 0, 0, 0.1),0 1px 0 0 rgba(0, 0, 0, 0.1);
-
 }
 
 #btn-group-main-toolbar {
 	width: 100%;
-	
 	display: table-cell;
     vertical-align: middle;
 }
@@ -51,7 +49,7 @@ html, body {
 
 
 #middle-file-row, #middle-widget-row{
-	height:70%;
+	height:65%;
 	padding: 0px;
 }
 
@@ -151,9 +149,14 @@ html, body {
 	padding:0px;
 }
 
-.sent-messages {
-	background-color:#bdc3c7;
-	border-color: #7f8c8d;
+.well {
+	word-wrap:break-word;
+	margin-bottom:5px;
+	font-size:12px;
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-bottom: 3px;
+	padding-top: 3px;
 }
 
 #chat-messages {
@@ -215,7 +218,6 @@ html, body {
 }
 
 /*DISABLE ROUNDED CORNERS*/
-
 * {
   -webkit-border-radius: 0 !important;
      -moz-border-radius: 0 !important;
@@ -223,6 +225,8 @@ html, body {
 }
 
 .main-button {
+	padding:0px;
+	margin: 0px;
 	width: 20.2%;
 	border-top: 0px;
 	border-bottom: 0px;
