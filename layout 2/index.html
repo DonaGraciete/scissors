@@ -18,6 +18,7 @@
 	<link rel="stylesheet" href="css/login.css" />
 	<!-- Google fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,500,700,100italic,500italic,400italic,700italic,300' rel='stylesheet' type='text/css'>
+
 	<title>Scissors</title>
 
 </head>
@@ -233,15 +234,15 @@
 		<!-- Left Side -->
 
 		<!-- Main Toolbar -->
-		<div class="top file row  text-center" id="top-main-row">
+		<div class="top file row text-center" id="top-main-row">
 
 			<div class="btn-group btn-group-sm" id="btn-group-main-toolbar">
 			
-					<button type="button" class="btn btn-default main-button left" id="new-file-button" data-toggle="modal"><i class="fa fa-plus"></i></button>
-					<button type="button" class="btn btn-default main-button" id="export-file-button" data-toggle="modal"><i class="fa fa-floppy-o"></i></button>
-					<button type="button" class="btn btn-default main-button"><i class="fa fa-print"></i></button>
-					<button type="button" class="btn btn-default main-button"><i class="fa fa-envelope-o"></i></button>
-					<button type="button" class="btn btn-default main-button right"><i class="fa fa-cog"></i></button>
+					<button type="button" class="btn btn-default main-button left" id="new-file-button" data-toggle="modal" title="New file"><i class="fa fa-plus"></i></button>
+					<button type="button" class="btn btn-default main-button" id="export-file-button" data-toggle="modal" title="Save file"><i class="fa fa-floppy-o"></i></button>
+					<button type="button" class="btn btn-default main-button" title="Print"><i class="fa fa-print"></i></button>
+					<button type="button" class="btn btn-default main-button" title="Mail"><i class="fa fa-envelope-o"></i></button>
+					<button type="button" class="btn btn-default main-button right" title="Settings"><i class="fa fa-cog"></i></button>
 	
 			</div>
 
@@ -434,7 +435,6 @@
 		</div> <!-- End of Top Editor Row -->
 
 		<!-- Editor Box -->
-		
 		<div class="middle editor row " id="middle-editor-row" contenteditable="false">
 
 		</div> <!-- End of Editor Box -->
@@ -511,9 +511,14 @@
 	<script src="js/notifications.js"></script>
 	<!-- Widget -->
 	<script src="js/widget.js"></script>
-	<!-- File export -->
-	<script src="js/export.js"></script>
+	<!-- File Export -->
+	<!--<script src="js/export.js"></script>-->
 
+	<!--<script type="text/javascript">
+	    $(function () {
+	        $('[rel=tooltip]').tooltip({container: 'body', placement: 'bottom'});
+	    });
+	</script>-->
 
 </body>
 
