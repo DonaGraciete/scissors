@@ -1,3 +1,11 @@
+function blockForm (form) {
+	form.prop("disabled", true);
+};
+
+function enableForm (element) {
+	form.prop("disabled", false);
+};
+
 //Por defeito, os erros sao escondidos
 $("#login-error").hide();
 $("#register-error").hide();
@@ -20,6 +28,7 @@ $("#switch-to-sign-in").click(function (event) {
 });
 
 $("#form-signin").submit(function(event){
+	blockForm($(this));
 	event.preventDefault();
 
 	var loginUsername = $("input[name=username-signin]").val();
