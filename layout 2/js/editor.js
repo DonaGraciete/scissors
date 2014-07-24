@@ -17,7 +17,7 @@ setInterval(function(){
 		files[fileChatInUse.index].text = $("#middle-editor-row").html();
 		changeEvents = 0;
 	}
-},1000);
+},500);
 
 function formatText(cmd, val) {
     // Executes execCommand and passes focus back to the editor
