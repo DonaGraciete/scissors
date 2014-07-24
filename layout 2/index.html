@@ -172,12 +172,12 @@
 					<form id="form-picture">
 
 						<label for="InputFile">File input</label>
-						<input type="file" id="InputFile">
+						<input type="file" id="image-path">
 
 						<br/>
 
 						Image URL:
-						<input type="text" class="form-control" name="picture-url" placeholder="URL">
+						<input type="text" class="form-control" id="picture-url" placeholder="URL">
 
 					</form>
 				</div>
@@ -236,14 +236,13 @@
 		<div class="top file row  text-center" id="top-main-row">
 
 			<div class="btn-group btn-group-sm" id="btn-group-main-toolbar">
-				<div style="margin: 0 auto;">
-					<button type="button" class="btn btn-default" id="new-file-button" data-toggle="modal"><i class="fa fa-plus"></i></button>
-					<button type="button" class="btn btn-default" id="export-file-button" data-toggle="modal"><i class="fa fa-floppy-o"></i></button>
-					<button type="button" class="btn btn-default"><i class="fa fa-print"></i></button>
-					<button type="button" class="btn btn-default"><i class="fa fa-envelope-o"></i></button>
-					<button type="button" class="btn btn-default"><i class="fa fa-cog"></i></button>
-				</div>
-				
+			
+					<button type="button" class="btn btn-default main-button left" id="new-file-button" data-toggle="modal"><i class="fa fa-plus"></i></button>
+					<button type="button" class="btn btn-default main-button" id="export-file-button" data-toggle="modal"><i class="fa fa-floppy-o"></i></button>
+					<button type="button" class="btn btn-default main-button"><i class="fa fa-print"></i></button>
+					<button type="button" class="btn btn-default main-button"><i class="fa fa-envelope-o"></i></button>
+					<button type="button" class="btn btn-default main-button right"><i class="fa fa-cog"></i></button>
+	
 			</div>
 
 		</div>
