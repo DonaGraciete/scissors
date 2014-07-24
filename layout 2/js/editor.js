@@ -134,7 +134,25 @@ $(document).ready(function() {
 
 	$("#insert-picture").click(function() {
 		$("#insert-picture-modal").modal(options);
+
+		$("#create-picture").click(function() {
+			$("#insert-picture-modal").modal("hide");
+
+			var cmd = getCmd("image");
+			var url = $("#picture-url").val();
+
+			formatText(cmd, url);
+		});
+
+
 	});
+
+
+
+
+
+
+
 
 	editor.keydown(function(event) {
 		//When user presses tab while writing it writes a paragraph
