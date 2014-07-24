@@ -69,3 +69,22 @@ function savedFileNotification () {
 
 };
 
+function deletedFileNotification (deleteFileName) {
+	$(function(){
+		var notice = new PNotify({
+			title: 'File deleted',
+			text: 'File '+deletedFileName+' has just been deleted',
+			type: 'info',
+			buttons: {
+				sticker: false
+			},
+			mouse_reset: false
+		});
+
+		notice.get().click(function() {
+			notice.remove();
+		});
+	});
+
+};
+
