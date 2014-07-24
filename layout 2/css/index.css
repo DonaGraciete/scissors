@@ -181,17 +181,22 @@ html, body {
 }
 
 #file-list li{
+	border-right-width: 0px;
+	border-left-width: 0px;
 	font-weight: 300;
 }
 
 #file-list li:hover{
 	cursor: pointer;
-	box-shadow:0 4px 2px 0 rgba(0, 0, 0, 0.1);
 }
 
-#file-list .active:hover{
+#file-list .active{
 	cursor: pointer;
-	background-color: #428bca;
+	background-color: #eee;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-color: #ddd;
+	color: #000000;
 }
 
 #contact-list {
@@ -215,11 +220,6 @@ html, body {
   -webkit-border-radius: 0 !important;
      -moz-border-radius: 0 !important;
           border-radius: 0 !important;
-}
-
-.list-group-item{
-	border-right: 0px;
-	border-left: 0px;
 }
 
 .main-button {
