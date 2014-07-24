@@ -77,31 +77,25 @@ html, body {
 
 /*WIDGET STUFF*/
 #wiki-b {
-	margin: 2px 2px;
-	width: 35px;
-	height: 28px;
-	cursor: pointer;
+	width: 60px;
+	height: 30px;
+	margin-top: auto 0px;
 }
 
 #pri-b {
-	cursor: pointer;
-	width: 35px;
-	height: 28px;
+	width: 60px;
+	height: 30px;
 }
 
 
 #ox-b {
-	margin: 2px 2px;
-	cursor: pointer;
-	width: 35px;
-	height: 28px;
+	width: 60px;
+	height: 30px;
 }
 
 #yahoo-b {
-	margin: 2px 2px;
-	cursor: pointer;
-	width: 35px;
-	height: 28px;
+	width: 60px;
+	height: 30px;
 }
 
 #top-widget-row{
