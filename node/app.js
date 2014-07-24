@@ -186,7 +186,9 @@ wss.on('connection', function(ws) {
                     
                     //  Send file text to its users' clients except sender
                     for(var i=0;i<result.users.length;++i){
-                        if(result.users[i] in openSockets && result.users[i]!=userId){
+                        if(result.users[i] in openSockets && String(result.users[i])!=String(userId)){
+                            console.log("sending file sync to user: "+result.users[i]);
+
                             openSockets[result.users[i]].send(JSON.stringify({
                                 type: "file-text",
                                 content:{

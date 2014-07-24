@@ -56,6 +56,7 @@ $("#file-list").delegate("li","click",function(event){
 	}
 
 	//	Sync text
+	//$("#middle-editor-row").empty();
 	$("#middle-editor-row").html(file.text);
 
 	//	Set/change current file's cache
