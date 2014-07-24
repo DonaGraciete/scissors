@@ -136,15 +136,22 @@ $(document).ready(function() {
 		$("#insert-picture-modal").modal(options);
 
 		$("#create-picture").click(function() {
+			var cmd = getCmd("image");
+
 			$("#insert-picture-modal").modal("hide");
 
-			var cmd = getCmd("image");
-			var url = $("#picture-url").val();
+			if ( $("#image-path").val() ) {
+				var url = $("#image-path").val();
+			}
+			else {
+				var url = $("#picture-url").val();
+			}
 
 			formatText(cmd, url);
+
+			$("#image-path").val("");
+			$("#picture-url").val("");
 		});
-
-
 	});
 
 
