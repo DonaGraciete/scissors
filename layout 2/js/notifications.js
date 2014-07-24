@@ -8,6 +8,7 @@ function webSocketOpenNotification () {
 			title: 'Success!',
 			text: 'Websocket connection was established.',
 			type: 'success',
+			shadow: false,
 			buttons: {
 				sticker: false
 			},
@@ -29,6 +30,7 @@ function webSocketClosedNotification () {
 			text: 'Websocket connection was lost. Click me to reconnect.',
 			type: 'error',
 			hide: false,
+			shadow: false,
 			buttons: {
 				closer: false,
 				sticker: false
