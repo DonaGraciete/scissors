@@ -67,7 +67,7 @@ html, body {
 	background-color:#FFFFFF;
 }
 
-#my-files{
+#my-files, #my-contacts{
 	background-color: #87D37C;
 	color: #FFFFFF;
 	padding: 5px;
@@ -198,6 +198,10 @@ html, body {
 	height:auto;
 	overflow: auto;
 	max-height: 60%;
+}
+
+#bottom-file-row{
+	padding: 0px;
 }
 
 .modal-padding {
