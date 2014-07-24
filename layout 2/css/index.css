@@ -208,3 +208,30 @@ html, body {
 	margin-top: 30px;
 	margin-bottom: 85px;
 }
+
+/*DISABLE ROUNDED CORNERS*/
+
+* {
+  -webkit-border-radius: 0 !important;
+     -moz-border-radius: 0 !important;
+          border-radius: 0 !important;
+}
+
+.list-group-item{
+	border-right: 0px;
+	border-left: 0px;
+}
+
+.main-button {
+	width: 20.2%;
+	border-top: 0px;
+	border-bottom: 0px;
+}
+
+.left {
+	border-left: 0px;
+}
+
+.right {
+	border-right: 0px;
+}
