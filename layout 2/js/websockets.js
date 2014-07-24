@@ -69,6 +69,7 @@ function sendDismissFileMessage(id){
 	}));
 }
 
+
 function sendTextFile(id){
 	
 	//	Get editor's text
@@ -82,6 +83,8 @@ function sendTextFile(id){
 		}
 	}));
 }
+
+
 
 function webSocketConnect() {
 	ws = new WebSocket (url + username);

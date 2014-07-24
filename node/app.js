@@ -62,6 +62,8 @@ wss.on('connection', function(ws) {
         });
     });
 
+
+
     console.log("connected: " + username);
     console.log("current connections: " +Object.keys(openSockets));
     
@@ -200,7 +202,8 @@ wss.on('connection', function(ws) {
                     }
                 });
 
-                break;         
+                break; 
+      
         }
         
     });
