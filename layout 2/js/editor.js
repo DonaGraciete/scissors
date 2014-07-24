@@ -155,13 +155,6 @@ $(document).ready(function() {
 		});
 	});
 
-
-
-
-
-
-
-
 	editor.keydown(function(event) {
 		//When user presses tab while writing it writes a paragraph
 		//instead of changing html element
@@ -172,10 +165,6 @@ $(document).ready(function() {
 			formatText(cmd, "&emsp;");
 		}
 	});
-
-
-	
-
 });
 
     
