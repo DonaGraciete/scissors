@@ -72,8 +72,6 @@ $("#file-list").delegate("li","click",function(event){
 		console.log("added existing message to chat");
 	}
 
-	var length = file.chat.length;
-	console.log("file's length: "+length);
 });
 
 $("#chat-input-text").keypress(function(event) {

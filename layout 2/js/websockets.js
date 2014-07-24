@@ -171,6 +171,7 @@ function webSocketConnect() {
 					recievedFileTextIndex = indexOfId(files,data.content.id);
 					files[recievedFileTextIndex].text = data.content.text;
 
+					//	If file being focused but not used
 					if(data.content.id == fileChatInUse.id){
 						$("#middle-editor-row").html(data.content.text);
 					}

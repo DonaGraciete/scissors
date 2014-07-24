@@ -138,6 +138,7 @@ wss.on('connection', function(ws) {
 
                 });
                 break;
+
             case "file-using":
 
                 console.log("\nUSER "+username+" is now using file "+data.content.id);
@@ -182,8 +183,10 @@ wss.on('connection', function(ws) {
                 console.log("\nUSER "+username+" edited file "+data.content.id);
 
                 db.collection("files").findAndModify({_id:new ObjectId(data.content.id)},[],{$set:{text:data.content.text}},{new:true},function(err,result){
+                    
+                    //  Send file text to its users' clients except sender
                     for(var i=0;i<result.users.length;++i){
-                        if(result.users[i] in openSockets){
+                        if(result.users[i] in openSockets && result.users[i]!=userId){
                             openSockets[result.users[i]].send(JSON.stringify({
                                 type: "file-text",
                                 content:{
