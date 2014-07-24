@@ -51,6 +51,7 @@ $("#form-signin").submit(function(event){
 				username = loginUsername;
 				$("#login-modal").modal("hide");
 				webSocketConnect();
+				loadWidgets();
 			}
 			else{
 				console.log("informacao errada");
@@ -102,6 +103,7 @@ $("#form-signup").submit(function(event){
 				username = loginUsername;
 				$("#login-modal").modal("hide");
 				webSocketConnect();
+				loadWidgets();
 			}
 			else{
 				console.log("informacao errada");

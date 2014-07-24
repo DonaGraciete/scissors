@@ -6,7 +6,7 @@ function webSocketOpenNotification () {
 	$(function(){
 		var notice = new PNotify({
 			title: 'Success!',
-			text: 'Websocket connection was established.',
+			text: 'Connection established.',
 			type: 'success',
 			shadow: false,
 			buttons: {
@@ -27,7 +27,7 @@ function webSocketClosedNotification () {
 	$(function(){
 		var notice = new PNotify({
 			title: 'Darn it!',
-			text: 'Websocket connection was lost. Click me to reconnect.',
+			text: 'Connection was lost. Click me to reconnect.',
 			type: 'error',
 			hide: false,
 			shadow: false,
