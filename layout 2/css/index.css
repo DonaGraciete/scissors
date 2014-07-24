@@ -53,6 +53,7 @@ html, body {
 #middle-file-row, #middle-widget-row{
 	height:70%;
 	padding: 0px;
+	box-shadow:0 4px 2px 0 rgba(0, 0, 0, 0.1),0 1px 0 0 rgba(0, 0, 0, 0.1);
 }
 
 #middle-editor-row {
