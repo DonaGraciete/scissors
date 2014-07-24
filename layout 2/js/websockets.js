@@ -69,6 +69,20 @@ function sendDismissFileMessage(id){
 	}));
 }
 
+function sendTextFile(id){
+	
+	//	Get editor's text
+	var text = $("#middle-editor-row").html();
+
+	ws.send(JSON.stringify({
+		type: "file-text",
+		content:{
+			id:id,
+			text:text
+		}
+	}));
+}
+
 function webSocketConnect() {
 	ws = new WebSocket (url + username);
 	
@@ -158,6 +172,19 @@ function webSocketConnect() {
 					files[recievedFileDismissIndex].using = "";
 
 					$("#"+data.content.id+" span").remove();
+
+					break;
+
+				case "file-text":
+
+					console.log("file text changed");
+
+					recievedFileTextIndex = indexOfId(files,data.content.id);
+					files[recievedFileTextIndex].text = data.content.text;
+
+					if(data.content.id == fileChatInUse.id){
+						$("#middle-editor-row").html(data.content.text);
+					}
 
 					break;
 

@@ -18,6 +18,7 @@ $("#file-list").delegate("li","click",function(event){
 	var file = files[index];
 	console.log("file's chat: "+file.chat);
 
+	//	MELHORAR ESTA MERDA, FUUUUUUUUCK
 	$.each($("#file-list li"), function (key, value) {
 		$(this).removeClass('active');
 	});
@@ -53,6 +54,9 @@ $("#file-list").delegate("li","click",function(event){
 	else{
 		$("#middle-editor-row").attr("contenteditable","false");
 	}
+
+	//	Sync text
+	$("#middle-editor-row").html(file.text);
 
 	//	Set/change current file's cache
 	fileChatInUse.index = index;

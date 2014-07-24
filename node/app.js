@@ -199,7 +199,27 @@ wss.on('connection', function(ws) {
                     }
                 });
 
-                break;            
+                break;   
+
+            case "file-text":
+
+                console.log("\nUSER "+username+" edited file "+data.content.id);
+
+                db.collection("files").findAndModify({_id:new ObjectId(data.content.id)},[],{$set:{text:data.content.text}},{new:true},function(err,result){
+                    for(var i=0;i<result.users.length;++i){
+                        if(result.users[i] in openSockets){
+                            openSockets[result.users[i]].send(JSON.stringify({
+                                type: "file-text",
+                                content:{
+                                    id: result._id,
+                                    text: data.content.text;
+                                }
+                            }));
+                        }
+                    }
+                });
+
+                break;         
         }
         
     });
