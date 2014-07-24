@@ -1,3 +1,7 @@
+#middle-editor-row {
+	word-wrap:break-word;
+}
+
 #editor-toolbar {
     display: table-cell;
     vertical-align: middle;
