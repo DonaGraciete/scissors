@@ -4,6 +4,20 @@ var options = {
 	"backdrop" : "true"
 };
 
+var changeEvents = 0;
+
+$("#middle-editor-row").bind("DOMSubtreeModified",function(ret){
+	console.log("editor content changed");
+	changeEvents+=1;
+});
+
+setInterval(function(){
+	if(changeEvents != 0){
+		sendTextFile(fileChatInUse.id);
+		changeEvents = 0;
+	}
+},1000);
+
 function formatText(cmd, val) {
     // Executes execCommand and passes focus back to the editor
 

@@ -309,6 +309,8 @@ app.use(function(err, req, res, next) {
 });
 
 server.listen(3000,function(){
-    var addr = server.address();
-    console.log("listening at", addr.address + ":" + addr.port);
+    db.collection("files").update({},{$set:{using:""}},{multi:true},function(err,result){
+        var addr = server.address();
+        console.log("listening at", addr.address + ":" + addr.port);
+    });
 });
