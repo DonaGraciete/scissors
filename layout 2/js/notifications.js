@@ -69,7 +69,7 @@ function savedFileNotification () {
 
 };
 
-function deletedFileNotification (deleteFileName) {
+function deletedFileNotification (deletedFileName) {
 	$(function(){
 		var notice = new PNotify({
 			title: 'File deleted',

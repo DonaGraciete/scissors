@@ -31,6 +31,7 @@ $("#delete-file").click(function() {
 	if(permission == 'true') {
 		var option = confirm("Are you sure you want to delete " + fileChatInUse.name + "?")
 		if (option) {
+			$("#middle-editor-row").attr('contenteditable',"false");
 			sendDeleteFileMessage();
 		};
 	}

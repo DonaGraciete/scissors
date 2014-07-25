@@ -210,6 +210,7 @@ wss.on('connection', function(ws) {
 
                 db.collection("files").findOne({_id:new ObjectId(data.content.id)},function(err,result){
                     
+                    console.log(result.users);
                     //  Send file delete message to users' clients
                     for(var i=0;i<result.users.length;++i){
                         if(result.users[i] in openSockets){
@@ -224,8 +225,16 @@ wss.on('connection', function(ws) {
                         }
                     }
 
+                    //  Update user's files
+                    db.collection("users").update({_id:{$in:result.users}},{$pull:{files:new ObjectId(data.content.id)}},{multi:true},function(err,qty){
+                        console.log("qty "+qty);
+                        console.log("user's files updated");
+                    });
+
                     //  Delete file
-                    db.collection("files").remove({_id:new ObjectId(data.content.id)});
+                    db.collection("files").remove({_id:new ObjectId(data.content.id)},function(err,result){
+                        console.log("file deleted");
+                    });
 
                 });
 
