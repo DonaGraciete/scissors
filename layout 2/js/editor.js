@@ -13,9 +13,11 @@ $("#middle-editor-row").bind("DOMSubtreeModified",function(ret){
 
 setInterval(function(){
 	if(changeEvents != 0 && $("#middle-editor-row").attr("contenteditable")=="true"){
-		sendTextFile(fileChatInUse.id);
-		files[fileChatInUse.index].text = $("#middle-editor-row").html();
-		changeEvents = 0;
+		if(fileChatInUse.id){
+			sendTextFile(fileChatInUse.id);
+			files[fileChatInUse.index].text = $("#middle-editor-row").html();
+			changeEvents = 0;
+		}
 	}
 },100);
 
