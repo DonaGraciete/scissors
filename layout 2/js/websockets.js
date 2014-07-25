@@ -208,7 +208,7 @@ function webSocketConnect() {
 					//	If file being focused (used or not)
 					if(data.content.id == fileChatInUse.id){
 						$("#middle-editor-row").html("");
-						$("#middle-editor-row").attr("contenteditable","true");
+						$("#middle-editor-row").attr("contenteditable","false");
 						fileChatInUse.index = null;
 						fileChatInUse.name = null;
 						fileChatInUse.id = null;

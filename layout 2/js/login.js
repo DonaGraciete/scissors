@@ -112,7 +112,6 @@ $("#form-signup").submit(function(event){
 			}
 		},
 		error: function(xhr, tetStatus, errorThrown){
-			alert("entrei")
 			if (xhr.responseText == '') {
 				$("#register-error-message").html("<strong>Sorry, an error happened.</strong> Check your internet connection.");
 				$("#register-error").show();
