@@ -18,6 +18,7 @@
 	<link rel="stylesheet" href="css/login.css" />
 	<!-- Google fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,500,700,100italic,500italic,400italic,700italic,300' rel='stylesheet' type='text/css'>
+
 	<title>Scissors</title>
 
 </head>
@@ -45,7 +46,7 @@
 
 							<form id="form-signin">
 
-								<input type="username" class="form-control" name="username-signin" placeholder="Username" required autofocus>
+								<input type="username" class="form-control" name="username-signin" placeholder="Username" required autofocus style="margin-bottom:5px">
 								<input type="password" class="form-control" name="password-signin" placeholder="Password" required>
 								<br/>
 
@@ -68,8 +69,8 @@
 							</div>
 
 							<form id="form-signup">
-								<input type="username" name='username-signup' class="form-control" placeholder="Username" required autofocus>
-								<input type="password" name='password-signup' class="form-control" placeholder="Password" required>
+								<input type="username" name='username-signup' class="form-control" placeholder="Username" required autofocus style="margin-bottom:5px">
+								<input type="password" name='password-signup' class="form-control" placeholder="Password" required style="margin-bottom:5px">
 								<input type="password" name="password-confirm" class="form-control" placeholder="Confirm password" required>
 								<br/>
 								<button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
@@ -233,16 +234,16 @@
 		<!-- Left Side -->
 
 		<!-- Main Toolbar -->
-		<div class="top file row  text-center" id="top-main-row">
+		<div class="top file row text-center" id="top-main-row">
 
 			<div class="btn-group btn-group-sm" id="btn-group-main-toolbar">
 			
-					<button type="button" class="btn btn-default main-button left" id="new-file-button" data-toggle="modal"><i class="fa fa-plus"></i></button>
-					<button type="button" class="btn btn-default main-button" id="export-file-button" data-toggle="modal"><i class="fa fa-floppy-o"></i></button>
-					<button type="button" class="btn btn-default main-button"><i class="fa fa-print"></i></button>
-					<button type="button" class="btn btn-default main-button" id="delete-file"><i class="fa fa-trash-o"></i></button>
-					<button type="button" class="btn btn-default main-button right"><i class="fa fa-cog"></i></button>
-	
+					<button type="button" class="btn btn-default main-button left" id="new-file-button" data-toggle="modal" title="New file"><i class="fa fa-plus"></i></button>
+					<button type="button" class="btn btn-default main-button" id="export-file-button" data-toggle="modal" title="Save file"><i class="fa fa-floppy-o"></i></button>
+					<button type="button" class="btn btn-default main-button" title="Print"><i class="fa fa-print"></i></button>
+					<button type="button" class="btn btn-default main-button" title="Mail"><i class="fa fa-envelope-o"></i></button>
+					<button type="button" class="btn btn-default main-button right" title="Settings"><i class="fa fa-cog"></i></button>
+
 			</div>
 
 		</div>
@@ -434,7 +435,6 @@
 		</div> <!-- End of Top Editor Row -->
 
 		<!-- Editor Box -->
-		
 		<div class="middle editor row " id="middle-editor-row" contenteditable="false">
 
 		</div> <!-- End of Editor Box -->
@@ -454,10 +454,10 @@
 		</div>
 
 		<div class="middle widget row " id="middle-widget-row">
-			<iframe id="wikipedia-iframe" class="panel-body" src=http://en.m.wikipedia.org/wiki/></iframe>
-			<iframe id="priberam-iframe" class="panel-body" src=http://www.priberam.pt/DLPO/></iframe>
-			<iframe id="oxford-iframe" class="panel-body" src=http://www.oxforddictionaries.com/></iframe>
-			<iframe id="yahoo-iframe" class="panel-body" src=https://images.search.yahoo.com/></iframe>
+			<iframe id="wikipedia-iframe" class="panel-body" src=></iframe>
+			<iframe id="priberam-iframe" class="panel-body" src=></iframe>
+			<iframe id="oxford-iframe" class="panel-body" src=></iframe>
+			<iframe id="yahoo-iframe" class="panel-body" src=></iframe>
 		</div>
 
 		<div class="bottom widget row " id="bottom-widget-row">
@@ -511,9 +511,14 @@
 	<script src="js/notifications.js"></script>
 	<!-- Widget -->
 	<script src="js/widget.js"></script>
-	<!-- File export -->
-	<script src="js/export.js"></script>
+	<!-- File Export -->
+	<!--<script src="js/export.js"></script>-->
 
+	<!--<script type="text/javascript">
+	    $(function () {
+	        $('[rel=tooltip]').tooltip({container: 'body', placement: 'bottom'});
+	    });
+	</script>-->
 
 </body>
 
