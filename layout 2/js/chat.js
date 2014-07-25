@@ -73,6 +73,8 @@ $("#file-list").delegate("li","click",function(event){
 		console.log("added existing message to chat");
 	}
 
+	$("#chat-messages").scrollTop($("#chat-messages")[0].scrollHeight);
+
 });
 
 $("#chat-input-text").keypress(function(event) {
@@ -85,6 +87,8 @@ $("#chat-input-text").keypress(function(event) {
 			sendChatMessage(message);
 
 			$(this).val('');
+
+			$("#chat-messages").scrollTop($("#chat-messages")[0].scrollHeight);
 		}
 	}
 });

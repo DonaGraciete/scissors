@@ -203,6 +203,33 @@ wss.on('connection', function(ws) {
                 });
 
                 break; 
+
+            case "file-delete":
+
+                console.log("\nUSER "+username+" deleted file "+data.content.id);
+
+                db.collection("files").findOne({_id:new ObjectId(data.content.id)},function(err,result){
+                    
+                    //  Send file delete message to users' clients
+                    for(var i=0;i<result.users.length;++i){
+                        if(result.users[i] in openSockets){
+                            console.log("sending file delete to user: "+result.users[i]);
+
+                            openSockets[result.users[i]].send(JSON.stringify({
+                                type: "file-delete",
+                                content:{
+                                    id: data.content.id
+                                }
+                            }));
+                        }
+                    }
+
+                    //  Delete file
+                    db.collection("files").remove({_id:new ObjectId(data.content.id)});
+
+                });
+
+                break; 
       
         }
         

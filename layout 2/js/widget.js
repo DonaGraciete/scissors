@@ -1,3 +1,15 @@
+function loadWidgets() {
+	wikipedia = $("#wikipedia-iframe");
+	priberam = $("#priberam-iframe");
+	oxford = $("#oxford-iframe");
+	yahoo = $("#yahoo-iframe");
+
+	wikipedia.attr('src',"http://en.m.wikipedia.org/wiki/Main_Page");
+	priberam.attr('src',"http://www.priberam.pt/DLPO/");
+	oxford.attr('src',"http://www.oxforddictionaries.com/");
+	yahoo.attr('src',"https://images.search.yahoo.com/");
+};
+
 $(function() {
 
 	$("#priberam-iframe").hide();

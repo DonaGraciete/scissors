@@ -69,6 +69,14 @@ function sendDismissFileMessage(id){
 	}));
 }
 
+function sendDeleteFileMessage(){
+	ws.send(JSON.stringify({
+		type:"file-delete",
+		content:{
+			id: fileChatInUse.id
+		}
+	}));
+}
 
 function sendTextFile(id){
 	
@@ -178,6 +186,32 @@ function webSocketConnect() {
 					if(data.content.id == fileChatInUse.id){
 						$("#middle-editor-row").html(data.content.text);
 					}
+
+					break;
+
+				case "file-delete":
+
+					console.log("file deleted");
+
+					fileToDeleteIndex = indexOfId(files,data.content.id);
+					var deletedFileName = files[fileToDeleteIndex].name;
+
+					//	Delete file in cache
+					files.splice(fileToDeleteIndex,1);
+
+					//	Remove file from list
+					$("#"+data.content.id).remove();
+
+					//	If file being focused (used or not)
+					if(data.content.id == fileChatInUse.id){
+						$("#middle-editor-row").html("");
+						$("#middle-editor-row").attr("contenteditable","true");
+						fileChatInUse.index = null;
+						fileChatInUse.name = null;
+						fileChatInUse.id = null;
+					}
+
+					deletedFileNotification(deletedFileName);
 
 					break;
 

@@ -24,3 +24,18 @@ $("#create-new-file-button").click(function (event){
 	sendFileMessage(fileName, fileUsers, username);
 
 });
+
+$("#delete-file").click(function() {
+	var permission = $("#middle-editor-row").attr('contenteditable');
+
+	if(permission == 'true') {
+		var option = confirm("Are you sure you want to delete " + fileChatInUse.name + "?")
+		if (option) {
+			sendDeleteFileMessage();
+		};
+	}
+
+	else {
+		alert("Error! You currently don't have writing privileges in this file.")
+	}
+});
