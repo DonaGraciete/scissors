@@ -202,6 +202,9 @@ function webSocketConnect() {
 					//	Remove file from list
 					$("#"+data.content.id).remove();
 
+					//	Clear current messages
+					$("#chat-messages").empty();
+
 					//	If file being focused (used or not)
 					if(data.content.id == fileChatInUse.id){
 						$("#middle-editor-row").html("");

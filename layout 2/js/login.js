@@ -12,7 +12,7 @@ $("#register-error").hide();
 
 var options = {
 	"show": "true",
-	"backdrop" : "false"  //colocar a "static" quando for para nao se poder fechar
+	"backdrop" : "static"  
 };
 
 $("#login-modal").modal(options);
