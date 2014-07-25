@@ -74,7 +74,6 @@ function deletedFileNotification (deletedFileName) {
 		var notice = new PNotify({
 			title: 'File deleted',
 			text: 'File '+deletedFileName+' has just been deleted',
-			type: 'info',
 			buttons: {
 				sticker: false
 			},
